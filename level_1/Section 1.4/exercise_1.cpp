@@ -7,6 +7,7 @@ int main()
     unsigned int count_char = 0, count_word = 0, count_newline = 1;
     int input, prev_char = 0;
     bool is_word = false;
+    printf("Start typing: \n");
     while ((input = getchar()) != EOF && input != 26 && input != 4)
     {
         if (input == 10 || input == 13) // This condition is introduced to increment the count of newline whithout increment char count.
