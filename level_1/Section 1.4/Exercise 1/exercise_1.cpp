@@ -1,6 +1,12 @@
-#include <stdio.h>
-#include <ctype.h>
-#include <stdbool.h>
+// c program to count no of characters, words and newlines in the user input using while loop
+// program stops accepting input from the user on pressing ctrl+d
+// note: all whitespaces except newline is counted as a character
+//
+//  author: amandeep singh gujral
+
+#include <stdio.h>   //c style I/O
+#include <ctype.h>   // c style type
+#include <stdbool.h> // c style boolean
 
 int main()
 {

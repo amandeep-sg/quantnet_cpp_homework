@@ -1,4 +1,8 @@
-#include <stdio.h>
+// c program to print in console
+//
+// author: amandeep singh gujral
+
+#include <stdio.h> //c style I/O
 
 int main()
 {
