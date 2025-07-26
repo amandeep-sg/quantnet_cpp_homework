@@ -1,8 +1,12 @@
-#include <stdio.h>
+// c program to compute the factorial of a whole number using recurssive function
+//
+// author: amandeep singh gujral
 
-long int factorial(int num)
+#include <stdio.h> // c style I/O
+
+long int factorial(int num) // factorial function using recursive function
 {
-    if (num <= 0)
+    if (num <= 0) // terminal critria
     {
         return 1;
     }

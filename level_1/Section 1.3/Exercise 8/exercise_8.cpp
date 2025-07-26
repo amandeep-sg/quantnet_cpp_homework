@@ -1,4 +1,8 @@
-#include <stdio.h>
+// c program to use the airthmatic operators and predict the outcome
+//
+// author: amandeep singh gujral
+
+#include <stdio.h> // c style I/O
 
 int main()
 {
@@ -12,7 +16,7 @@ int main()
     printf("x=%d\n", x); // x = 40, y = 4, z = 4
 
     x = y == z;
-    printf("x=%d\n", x); // x = 1 , y==z evaluates to 1
+    printf("x=%d\n", x); // x = 1 as y==z evaluates to 1
 
     return 0;
 }

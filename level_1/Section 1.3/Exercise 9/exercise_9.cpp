@@ -1,4 +1,7 @@
-#include <stdio.h>
+// c program to perform the airthmatic operations and predict the outcome
+//
+// author: amandeep singh gujral
+#include <stdio.h> // c style I/O
 
 int main()
 {

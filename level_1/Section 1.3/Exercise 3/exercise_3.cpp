@@ -1,4 +1,8 @@
-#include <stdio.h>
+// c program to print the output of the airthmatic claculations
+//
+// author: amandeep singh gujral
+
+#include <stdio.h> // c syle I/O
 
 int main()
 {

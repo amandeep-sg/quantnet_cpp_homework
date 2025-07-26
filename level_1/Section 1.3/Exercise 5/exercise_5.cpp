@@ -1,4 +1,7 @@
-#include <stdio.h>
+// c program to pre increment and post increment a variable by 1 unit
+//
+// author: amandeep singh gujral
+#include <stdio.h> //c style I/O
 
 int main()
 {
@@ -7,7 +10,7 @@ int main()
     printf("i: %i\n", i);
     printf("--i: %i\n\n", --i); // output will be: 9
 
-    i = 10;
+    i = 10; // assign new value to variable i
     printf("Post-decrement\n");
     printf("i: %d\n", i);
     printf("i--: %d\n", i--); // output will be: 10
