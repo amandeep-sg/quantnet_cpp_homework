@@ -1,5 +1,5 @@
 // Main.c
-// program to reads the characters from the keyboard and shows them on screen
+// program to reads the characters from the keyboard and print them in terminal on press of 'enter' (or 'return)
 //
 // author: amandeep singh gujral
 
