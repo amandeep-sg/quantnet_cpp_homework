@@ -9,8 +9,6 @@
 // define max length of the user input
 #define MAX_LENGTH 1000
 
-bool Push(int *arr, int *count, int *val);
-
 int main()
 {
     int input;
@@ -32,21 +30,9 @@ int main()
         }
         else
         {
-            Push(store, &char_count, &input); // push characters to the back of the store
+            store[char_count++] = input; // push characters to the back of the store
         }
     }
     printf("CTRL + A is a correct ending.");
     return 0;
-}
-
-// define Push function to push the character to the back of the array (i.e. store)
-bool Push(int *arr, int *count, int *val)
-{
-    if (*count >= MAX_LENGTH) // check if the array is full
-    {
-        return false;
-    }
-    arr[*count] = *val; // add value to the back of the array
-    (*count)++;         // increment the count of characters added
-    return true;        // return true if the value is added to the
 }

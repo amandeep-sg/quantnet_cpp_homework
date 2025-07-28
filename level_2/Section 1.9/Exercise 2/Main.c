@@ -11,7 +11,6 @@
 // define max length of the user input
 #define MAX_LENGTH 1000
 
-bool Push(int *arr, int *count, int *val);            // function declaration to push element to the back of an array
 FILE *Create_File();                                  // function declaration to take file name input and create .txt file
 void Write_File(int *arr, int *char_count, FILE *fp); // function declaration to write user input to a .txt file
 
@@ -22,7 +21,7 @@ int main()
     int store[MAX_LENGTH]; // array to store the characters typed by the user
     FILE *fp;
     fp = Create_File();
-    if (fp == NULL)
+    if (fp == NULL) // check if the file is created or not
     {
         printf("Error: Not able to create file\n");
         return 0;
@@ -39,7 +38,7 @@ int main()
         }
         else
         {
-            Push(store, &char_count, &input); // push characters to the back of the store
+            store[char_count++] = input; // push characters to the back of the store
         }
     }
     printf("CTRL + A is a correct ending.");
@@ -51,10 +50,17 @@ int main()
 // returns pointer to the file to perform write operation
 FILE *Create_File()
 {
+    int input;
+    int char_count = 0;
     char file_name[51]; // array to store the file name entered by the user
-    printf("Type file name(upto 50 characters) & press enter (or return): ");
-    scanf("%10s", file_name);
 
+    printf("Type file name(upto 50 characters) & press enter (or return): \n");
+    while ((input = getchar()) != 10)
+    {
+        file_name[char_count++] = (char)input; // push characters to the back of the filename
+    }
+    printf("\n");
+    char_count = 0;
     strcat(file_name, ".txt");        // concat .txt to filename
     FILE *fp = fopen(file_name, "w"); // create file
     return fp;
@@ -65,19 +71,7 @@ void Write_File(int *arr, int *char_count, FILE *fp)
 {
     for (int i = 0; i < *char_count; i++) // loop through the store array to print the characters typed in by the user
     {
-        fputc(arr[i], fp);
+        fputc(arr[i], fp); // write characters to the file
     }
     fputc('\n', fp);
-}
-
-// define Push function to push the character to the back of the array (i.e. store)
-bool Push(int *arr, int *count, int *val)
-{
-    if (*count >= MAX_LENGTH) // check if the array is full
-    {
-        return false;
-    }
-    arr[*count] = *val; // add value to the back of the array
-    (*count)++;         // increment the count of characters added
-    return true;        // return true if the value is added to the array
 }
