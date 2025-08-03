@@ -1,8 +1,8 @@
 // Main.cpp
-// program to Ask the user for the x- and y-coordinates of a point
-// set the coordinates entered by the user using the setter functions.
-// print the description of the point returned by the ToString() function.
-// print the point coordinates using the get functions.
+// program to Ask the user for the x-coordinate and y-coordinates of two point
+// set the coordinates entered by the user using the setter functions
+// print the description of the point returned by the ToString() function
+// print the point coordinates using the get functions
 //
 // author: amandeep singh gujral
 
