@@ -17,7 +17,7 @@ int main()
 
     printf("Start typing...\n");
 
-    while ((input = getchar()) != EOF && input != 1 && input != 4 && input != 26)
+    while ((input = getchar()) != EOF && input != 1 && input != 4 && input != 26 & char_count< MAX_LENGTH)
     {
         if (input == 10) // check if the user has pressed entered. If yes, start printing the characters
         {

@@ -29,7 +29,7 @@ int main()
 
     printf("Start typing...\n");
 
-    while ((input = getchar()) != EOF && input != 1 && input != 4 && input != 26)
+    while ((input = getchar()) != EOF && input != 1 && input != 4 && input != 26 & char_count < MAX_LENGTH)
     {
         if (input == 10) // check if the user has pressed entered. If yes, start printing the characters
         {
@@ -55,10 +55,11 @@ FILE *Create_File()
     char file_name[51]; // array to store the file name entered by the user
 
     printf("Type file name(upto 50 characters) & press enter (or return): \n");
-    while ((input = getchar()) != 10)
+    while ((input = getchar()) != 10 && char_count <= 50)
     {
         file_name[char_count++] = (char)input; // push characters to the back of the filename
     }
+    file_name[char_count] = '\0'; // append null character to the end
     printf("\n");
     char_count = 0;
     strcat(file_name, ".txt");        // concat .txt to filename
