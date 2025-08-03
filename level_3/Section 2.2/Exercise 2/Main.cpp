@@ -53,7 +53,7 @@ int main()
     cout << "Distance of second point from origin: " << point_b.DistanceOrigin() << endl; // distance of point_b from origin
 
     // distance between point_a and point_b
-    cout << "Distance between first and second point: " << point_a.DistancePoint(point_b) << endl;
+    cout << "Distance between first and second point: " << point_a.Distance(point_b) << endl;
     ;
 
     return 0;
