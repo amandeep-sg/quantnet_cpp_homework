@@ -10,6 +10,7 @@
 #ifndef Point_hhp
 #define Point_hhp
 
+#include <string>
 using namespace std;
 
 class Point

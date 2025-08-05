@@ -62,13 +62,5 @@ int main()
     cout << "Distance between first and second point: " << point_a.Distance(point_b) << endl;
 
     cout << endl;
-
-    // observations:
-    // when calling member function Distance(), the copy constructor is called
-    // to no of constructor calls is equal to no of destructor calls
-    // 2 constructor calls for instantiating poinr_a and point_b.
-    // copy constructor is not called.
-    // 2 distructor calls 1 for point_b and 1 for point_a
-
     return 0;
 }

@@ -39,7 +39,7 @@ double Point::Distance() const // return distance of the point from origin
     return sqrt(point_x * point_x + point_y * point_y);
 }
 
-double Point::Distance(Point &other) const // return distance between two points
+double Point::Distance(const Point &other) const // return distance between two points
 {
     return sqrt(pow((point_x - other.point_x), 2) + pow((point_y - other.point_y), 2));
 }

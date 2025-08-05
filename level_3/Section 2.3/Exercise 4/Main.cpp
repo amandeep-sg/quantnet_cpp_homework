@@ -63,12 +63,8 @@ int main()
 
     cout << endl;
 
-    // observations:
-    // when calling member function Distance(), the copy constructor is called
-    // to no of constructor calls is equal to no of destructor calls
-    // 2 constructor calls for instantiating poinr_a and point_b.
-    // copy constructor is not called.
-    // 2 distructor calls 1 for point_b and 1 for point_a
+    const Point cp(1.5, 3.9);
+    cout << cp.X() << endl;
 
     return 0;
 }
