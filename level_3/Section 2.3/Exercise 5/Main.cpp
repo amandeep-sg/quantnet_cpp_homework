@@ -1,10 +1,7 @@
 // Main.cpp
-// program to Ask the user for the x-coordinate and y-coordinates of two point
-// set the coordinates entered by the user using the setter functions
-// print the description of the point returned by the ToString() function
-// print the point coordinates using the get functions
-// print the distance of both the points from origin
-// print the distance between the two points
+// program to Ask the user for the start point and end point of a line
+// print the description of the line returned by the ToString() function
+// print the length of the line using Length() function
 //
 // author: amandeep singh gujral
 
