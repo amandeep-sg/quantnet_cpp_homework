@@ -1,8 +1,6 @@
 // Point.hpp
 // program to define point class with x & y coordinates.
-// declare getter and setter functions to get and set values for x & y
-// declare distanceOrigin member function to calculate distnce of point from origin
-// declare distancePoint member function to calculate distnce between two points
+// declare and overlaad getter, setter and distance functions
 // declare ToString() funtion
 //
 // author: amandeep singh gujral

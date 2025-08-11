@@ -32,7 +32,7 @@ public:
     void X(double x); // update the value of x coordinate of a point
     void Y(double y); // update the value of y coordinate of a point
 
-    double Distance() const;             // return distance of the point from origin
+    double Distance() const;                   // return distance of the point from origin
     double Distance(const Point &other) const; // return distance between two points
 
     string ToString() const; // retunr string description of the point, syntax => Point(x, y)

@@ -23,7 +23,7 @@ private:
 
 public:
     Circle();                                    // default constructor
-    Circle(Point &center_point, double &raidus); // constructor with center point and raidus
+    Circle(Point &center_point, double raidus); // constructor with center point and raidus
     Circle(const Circle &other);                 // copy constructor
 
     ~Circle(); // destructor
@@ -36,6 +36,8 @@ public:
 
     void Center_Point(Point &p); // update center point of the circle
     void Raidus(double &r);      // update raidus of the circle
+
+    Circle &operator=(const Circle &source); //assignment operator
 
     string ToString() const; // return description of the Circle ex. Circle Start Point(1, 0) and Circle End Point(2, 1)
 };

@@ -32,9 +32,26 @@ public:
     void Y(double y); // update the value of y coordinate of a point
 
     double Distance() const;             // return distance of the point from origin
-    double Distance(Point &other) const; // return distance between two points
+    double Distance(const Point &other) const; // return distance between two points
 
     string ToString() const; // return string description of the point, syntax => Point(x, y)
+
+    // unary operator declaration
+    Point operator-() const; // negate the coordinates
+
+    // binary operator declarations
+    Point operator+(const Point &Point) const;  // add two coordinates
+
+    // assignment operator declaration
+    Point &operator=(const Point &source);  // assign coordinates
+    Point &operator*=(const double factor); // scale the coordinates
+
+    //comparison operator declaration
+    bool operator==(const Point &other); //compare two points
+
+    //global function for * operator
+    friend Point operator*(const double factor, const Point &p);
+    friend Point operator*(const Point &p, const double factor);
 };
 
 #endif
