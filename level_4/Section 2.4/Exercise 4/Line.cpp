@@ -66,10 +66,9 @@ string Line::ToString() const // return desctiption of the line in string
 
 ostream &operator<<(ostream &os, const Line &source) // <<operator overload to cout 
 {
-    os << source.ToString();
+    os << "Line start "<<source.start_point<<" | "<<"Line end "<<source.end_point;
     return os;
 }
-
 
 Line::~Line()
 {

@@ -50,13 +50,13 @@ public:
     // comparison operator declaration
     bool operator==(const Point &other); // compare two points
 
-    // global function for * operator
+    // friend function for * operator
     friend Point operator*(const double factor, const Point &p);
     friend Point operator*(const Point &p, const double factor);
+    
+    // friend function for << operator, inside the class defination
+    friend ostream &operator<<(ostream &os, const Point &source);
 
 };
-
-    // global function for << operator, outside the class defination
-    ostream &operator<<(ostream &os, const Point &source);
 
 #endif

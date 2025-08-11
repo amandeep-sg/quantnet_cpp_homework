@@ -103,9 +103,9 @@ Point operator*(const double factor, const Point &p)
     return p * factor;
 }
 
-ostream &operator<<(ostream &os, const Point &source)
+ostream &operator<<(ostream &os, const Point &source) // overload << operator function defination
 {
-    os << source.ToString();
+    os << "point ("<<source.point_x<<", "<<source.point_y<<")";
     return os;
 }
 

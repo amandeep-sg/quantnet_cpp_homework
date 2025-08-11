@@ -40,9 +40,9 @@ public:
     Line &operator=(const Line &source); // assign coordinates of start and end point of the source line
 
     string ToString() const; // return description of the line ex. Line Start Point(1, 0) and Line End Point(2, 1)
-};
 
-// global function for << operator, outside the class defination
-ostream &operator<<(ostream &os, const Line &source);
+    // friend function for << operator, inside the class defination
+    friend ostream &operator<<(ostream &os, const Line &source);
+};
 
 #endif
