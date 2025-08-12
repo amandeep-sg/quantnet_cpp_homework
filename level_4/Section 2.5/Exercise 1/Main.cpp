@@ -1,10 +1,7 @@
 // Main.cpp
-// program to Ask the user for the x-coordinate and y-coordinates of two point
-// set the coordinates entered by the user using the setter functions
-// print the description of the point returned by the ToString() function
-// print the point coordinates using the get functions
-// print the distance of both the points from origin
-// print the distance between the two points
+// program to create pointers to Point object
+// The pointers point to instance of Point object created on heap
+// Instance of Point are created using default constructor, constructor with coordinates and copy constructor
 //
 // author: amandeep singh gujral
 
@@ -15,7 +12,7 @@ using namespace std;
 
 int main()
 {
-     Point *point_a, *point_b, *point_c;
+     Point *point_a, *point_b, *point_c; // pointers of type Point
 
      // point created on heap using default constructor
      point_a = new Point();
@@ -33,28 +30,39 @@ int main()
      cout << "distance of point a from origin: " << point_c->Distance() << endl;
 
      cout << "distance between point a and point b: " << point_b->Distance(*point_a) << endl;
+     cout << endl;
 
      // initialise variable size array with default constructor
-     //Array in the heap can only be created with the default constructor
-     cout << endl;
-     int size;
+     // Array in the heap can only be created with the default constructor
+     int size; // size of the array
      cout << "Enter the size of the array: " << endl;
      cin >> size;
-     Point *p_arr;
-     p_arr = new Point[size];
+
+     Point *p_arr;            // pointer of type Point
+     p_arr = new Point[size]; // initialise array of type Point and of length = size
 
      cout << endl;
 
-     for (int i = 0; i < size; i++)
+     if (p_arr == nullptr) // check if the array is initialised
      {
-          cout << p_arr[i] << endl;
+          cout << "error: insufficient memory!" << endl;
      }
+     else
+     {
+          for (int i = 0; i < size; i++) // iterate over p_arr to print all the elements of the array
+          {
+               cout << p_arr[i] << endl;
+          }
+     }
+
      cout << endl;
 
      // delete instance of the points created
      delete point_a;
      delete point_b;
      delete point_c;
+
+     // delete all the elements or p_arr
      delete[] p_arr;
      return 0;
 }
