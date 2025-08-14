@@ -74,7 +74,7 @@ string Circle::ToString() const // return desctiption of the Circle in string
     return ss.str();
 }
 
-ostream &operator<<(ostream &os, const Circle &source)
+ostream &operator<<(ostream &os, const Circle &source) //operator<< overload to cout
 {
     os<< source.ToString();
     return os;

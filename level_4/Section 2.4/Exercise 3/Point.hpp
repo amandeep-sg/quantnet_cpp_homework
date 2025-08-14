@@ -3,6 +3,7 @@
 // declare and overload getter, setter and distance functions
 // make getter and distance functions const
 // declare ToString() funtion
+// declare explicit constructor with single argument, with same value for x & y coordinate
 //
 // author: amandeep singh gujral
 

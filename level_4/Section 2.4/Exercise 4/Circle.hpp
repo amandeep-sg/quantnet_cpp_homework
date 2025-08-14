@@ -5,6 +5,8 @@
 // declare setter to update center point and raidus
 // declare ToString() to get the description of the Circle
 // declare diameter(), area() and Circumference() to get respetive values
+// declare operator= overload
+// declare operator<< overload to cout as friend
 //
 // author: amandeep singh gujral
 

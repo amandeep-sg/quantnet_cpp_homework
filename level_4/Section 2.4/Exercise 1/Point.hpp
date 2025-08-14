@@ -3,6 +3,7 @@
 // declare and overload getter, setter and distance functions
 // make getter and distance functions const
 // declare ToString() funtion
+// declare operator-, +, =, *, *=, == overload
 //
 // author: amandeep singh gujral
 
@@ -49,7 +50,7 @@ public:
     //comparison operator declaration
     bool operator==(const Point &other); //compare two points
 
-    //global function for * operator
+    //friend function for * operator
     friend Point operator*(const double factor, const Point &p);
     friend Point operator*(const Point &p, const double factor);
 };

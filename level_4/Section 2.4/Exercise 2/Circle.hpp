@@ -5,6 +5,8 @@
 // declare setter to update center point and raidus
 // declare ToString() to get the description of the Circle
 // declare diameter(), area() and Circumference() to get respetive values
+// declare operator= overload
+// declare operator<< overload to cout
 //
 // author: amandeep singh gujral
 
@@ -24,9 +26,9 @@ private:
     double raidus;
 
 public:
-    Circle();                                    // default constructor
+    Circle();                                   // default constructor
     Circle(Point &center_point, double raidus); // constructor with center point and raidus
-    Circle(const Circle &other);                 // copy constructor
+    Circle(const Circle &other);                // copy constructor
 
     ~Circle(); // destructor
 
@@ -39,7 +41,7 @@ public:
     void Center_Point(Point &p); // update center point of the circle
     void Raidus(double &r);      // update raidus of the circle
 
-    Circle &operator=(const Circle &source); //assignment operator
+    Circle &operator=(const Circle &source); // assignment operator
 
     string ToString() const; // return description of the Circle ex. Circle Start Point(1, 0) and Circle End Point(2, 1)
 };

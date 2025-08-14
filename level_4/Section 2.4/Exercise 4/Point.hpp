@@ -3,6 +3,8 @@
 // declare and overload getter, setter and distance functions
 // make getter and distance functions const
 // declare ToString() funtion
+// declare operator-, +, =, *, *=, == overload
+// declare operator<< overload to cout as firend
 //
 // author: amandeep singh gujral
 

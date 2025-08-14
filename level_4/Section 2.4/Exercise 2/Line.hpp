@@ -5,6 +5,8 @@
 // declare setter to update start and end point
 // declare ToString() to get the description of the line
 // declare Length() to get the length of the line
+// declare operator= overload
+// declare operator<< overload to cout
 //
 // author: amandeep singh gujral
 

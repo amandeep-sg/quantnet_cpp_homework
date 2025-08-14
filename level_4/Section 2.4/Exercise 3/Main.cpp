@@ -16,22 +16,25 @@ using namespace std;
 int main()
 {
 
-     // Note: this code will compile and run 
-	// during execution, 1.0 in the if statement is implicitly converted to a Point object, therefore being equal
-	//Point p(1.0, 1.0);
-	//if (p == 1.0) cout << "Equal!" << endl;
-	//else cout << "Not equal" << endl;
+     // Note: this code will compile and run
+     // during execution, 1.0 in the if statement is implicitly converted to a Point object, therefore being equal
+     // Point p(1.0, 1.0);
+     // if (p == 1.0) cout << "Equal!" << endl;
+     // else cout << "Not equal" << endl;
 
-     //output: 
-     //Constructor called: New point created with x==y!
-     //Equal!
+     // output:
+     // Constructor called: New point created with x==y!
+     // Equal!
 
+     // code from the exercise
+     Point p(1.0, 1.0);
+     cout << (Point)1.0 << endl;
+     cout << endl;
 
-     //code from the exercise
-     Point p(1.0, 1.0); 
-     if (p==(Point)1.0) cout<<"Equal!"<<endl; 
-     else cout<<"Not equal"<<endl; 
-
+     if (p == (Point)1.0)
+          cout << "Equal!" << endl;
+     else
+          cout << "Not equal" << endl;
 
      return 0;
 }

@@ -1,10 +1,8 @@
 // Main.cpp
-// program to Ask the user for the x-coordinate and y-coordinates of two point
-// set the coordinates entered by the user using the setter functions
-// print the description of the point returned by the ToString() function
-// print the point coordinates using the get functions
-// print the distance of both the points from origin
-// print the distance between the two points
+// program to showcase operator overload -, +, =, *, *=, == of Point class
+// showcase operator overload = of Line class
+// showcase operator overload = of Circle class
+// cout Point, Line and Circle class using operator<< overload
 //
 // author: amandeep singh gujral
 

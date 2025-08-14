@@ -5,6 +5,7 @@
 // declare setter to update start and end point
 // declare ToString() to get the description of the line
 // declare Length() to get the length of the line
+// declare operator= overload
 //
 // author: amandeep singh gujral
 

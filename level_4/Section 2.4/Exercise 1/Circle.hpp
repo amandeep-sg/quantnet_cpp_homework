@@ -5,6 +5,7 @@
 // declare setter to update center point and raidus
 // declare ToString() to get the description of the Circle
 // declare diameter(), area() and Circumference() to get respetive values
+// declare operator= overload
 //
 // author: amandeep singh gujral
 
