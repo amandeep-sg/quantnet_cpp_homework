@@ -14,19 +14,19 @@ using namespace std;
 
 Point::Point() : point_x(0.00), point_y(0.00) // initialise Point instance with x = 0.00 and y = 0.00
 {
-    cout << "constructor called: "<<*this<<" created!"<<endl;
+    // cout << "constructor called: "<<*this<<" created!"<<endl;
 };
 
 Point::Point(double x, double y) : point_x(x), point_y(y) // overload constructor to initialize with values x & y
 {
-    cout << "constructor called: "<<*this<<" created!" << endl;
+    // cout << "constructor called: "<<*this<<" created!" << endl;
 };
 
 Point::Point(const Point &other) // copy constructor
 {
     point_x = other.point_x;
     point_y = other.point_y;
-    cout << "Constructor called: " << *this << " copied!" << endl;
+    // cout << "Constructor called: " << *this << " copied!" << endl;
 }
 
 double Point::X() const { return point_x; } // return x coordinate of the point
@@ -112,5 +112,5 @@ ostream &operator<<(ostream &os, const Point &source) // overload << operator fu
 // destructor
 Point::~Point()
 {
-    cout << *this << " is destroyed!" << endl;
+    // cout << *this << " is destroyed!" << endl;
 }

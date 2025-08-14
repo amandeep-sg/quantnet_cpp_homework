@@ -28,8 +28,8 @@ public:
 
     void SetElement(const int index, const Point &element); // set the element at the given index in an array
 
-    Point &operator[](const int index);             // square bracket operator for accessing elements
-    const Point &operator[](const int index) const; // get const reference to a point
+    Point &operator[](const int index);             // operator[] for accessing elements of array instance created without const
+    const Point &operator[](const int index) const; // operator[] for accessing elements of array instance created with const
 };
 
 #endif
