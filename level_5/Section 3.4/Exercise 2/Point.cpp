@@ -16,17 +16,17 @@ namespace ADSINGH
 {
     namespace CAD
     {
-        Point::Point() : point_x(0.00), point_y(0.00) // initialise Point instance with x = 0.00 and y = 0.00
+        Point::Point() : Shape(), point_x(0.00), point_y(0.00) // initialise Point instance with x = 0.00 and y = 0.00
         {
             cout << "constructor called: " << *this << " created!" << endl;
         };
 
-        Point::Point(double x, double y) : point_x(x), point_y(y) // overload constructor to initialize with values x & y
+        Point::Point(double x, double y) : Shape(), point_x(x), point_y(y) // overload constructor to initialize with values x & y
         {
             cout << "constructor called: " << *this << " created!" << endl;
         };
 
-        Point::Point(const Point &other): point_x(other.point_x), point_y(other.point_y) // copy constructor
+        Point::Point(const Point &other) : Shape(other), point_x(other.point_x), point_y(other.point_y) // copy constructor
         {
             cout << "Constructor called: " << *this << " copied!" << endl;
         }
@@ -69,6 +69,7 @@ namespace ADSINGH
         // define assignment operators
         Point &Point::operator=(const Point &source) // assign the coordinates of a point to other point.
         {
+            Shape::operator=(source);
             point_x = source.point_x;
             point_y = source.point_y;
             cout << "= operator called: " << *this << endl;
