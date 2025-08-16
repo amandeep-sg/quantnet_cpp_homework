@@ -18,13 +18,13 @@ int main()
      Shape s;                          // Create shape.
      Point p(10, 20);                  // Create point.
      Line l(Point(1, 2), Point(3, 4)); // Create line.
-     Circle c(Point(3, 4), 10);        // Create circle
+     Circle c(Point(5, 6), 10);        // Create circle
 
      cout << endl;
 
      cout << s.ToString() << endl; // Print shape.
      cout << p.ToString() << endl; // Print point.
-     cout << l.ToString() << endl; // Print line
+     cout << l.ToString() << endl; // Print line.
 
      cout << endl;
 
@@ -34,13 +34,13 @@ int main()
 
      cout << endl;
 
-     Shape *sp;                      // Create pointer to a shape variable.
-     sp = &p;                        // Point in a shape variable. Possible? Ans: Yes, as Point is the child class of parent Shape
-     cout << sp->ToString() << endl; // What is printed? Ans: The Point p is printed as ToPrint is a virtual function in Shape class
+     cout << c.ToString() << endl;
 
      cout << endl;
 
-     cout << c.ToString() << endl;
+     Shape *sp;                      // Create pointer to a shape variable.
+     sp = &p;                        // Point in a shape variable. Possible? Ans: Yes, as Point is the child class of parent Shape
+     cout << sp->ToString() << endl; // What is printed? Ans: The Point p is printed as ToPrint is a virtual function in Shape class
 
      cout << endl;
 
