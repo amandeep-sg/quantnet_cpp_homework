@@ -73,14 +73,14 @@ Array &Array::operator=(Array &source) // assigment operator to copy element of 
     return *this;
 }
 
-int Array::Size() // get the size of the array instance
+int Array::Size() const // get the size of the array instance
 {
     return size;
 }
 
 Point &Array::GetElement(int index) const // get the element of the array instance based on index argument
 {
-    if (index > 0 || index < size)
+    if (index >= 0 || index < size)
     {
         return arr[index];
     }
@@ -89,7 +89,7 @@ Point &Array::GetElement(int index) const // get the element of the array instan
 
 void Array::SetElement(const int index, const Point &element) // set the Point element at the index in an array
 {
-    if (index > 0 || index < size)
+    if (index >= 0 || index < size)
     {
         arr[index] = element;
     }

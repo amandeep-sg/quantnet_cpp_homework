@@ -23,7 +23,7 @@ public:
 
     Array &operator=(Array &soruce); // assignment operator overload to copy the array
 
-    int Size();                               // get the size of the array
+    int Size() const;                               // get the size of the array
     Point &GetElement(const int index) const; // get element at an index from the array
 
     void SetElement(const int index, const Point &element); // set the element at the given index in an array
