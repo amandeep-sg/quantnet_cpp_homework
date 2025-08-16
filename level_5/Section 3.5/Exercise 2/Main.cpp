@@ -1,6 +1,6 @@
 // Main.cpp
 // program to showcase the reduction in the constructor call by using colon syntes in the
-// defacult contructor, constructor with initial values, copy constructor and assignment operator
+// default contructor, constructor with initial values, copy constructor and assignment operator
 //
 // author: amandeep singh gujral
 
