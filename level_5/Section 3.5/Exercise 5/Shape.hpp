@@ -1,6 +1,7 @@
 // Shape.hpp
 // program to declare the Shape base class constructor, copy constructor, destructor
 // operator= overload, getter and virtual ToString member functions
+// declare Draw and Print pure virtual member functions
 //
 // author: amandeep singh gujral
 

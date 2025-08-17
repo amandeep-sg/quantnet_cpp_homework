@@ -1,6 +1,7 @@
 // Shape.hpp
 // program to declare the Shape base class constructor, copy constructor, destructor
 // operator= overload, getter and virtual ToString member functions
+// declare Draw, a pure virtual member function
 //
 // author: amandeep singh gujral
 
@@ -25,10 +26,9 @@ namespace ADSINGH
 
             Shape &operator=(const Shape &source); // operator= overload
 
-            const int ID() const;         // return the id of the shape instance
+            const int ID() const;                 // return the id of the shape instance
             virtual std::string ToString() const; // ToString to return string output ex. "ID: 123"
-            virtual void Draw() = 0; //pure virtual member function
-
+            virtual void Draw() = 0;              // pure virtual member function
         };
     }
 }

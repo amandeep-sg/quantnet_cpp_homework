@@ -1,7 +1,6 @@
 // Main.cpp
-// Initialise shapes array of size 3
-// assign shape, point and line to each element of shapes using new operator
-// for loop to delete each elemet of the array
+// Initialize a point, line and circle
+// call print command of each instance
 //
 // author: amandeep singh gujral
 
