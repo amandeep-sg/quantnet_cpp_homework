@@ -28,7 +28,7 @@ namespace ADSINGH
 
             const int ID() const;                 // return the id of the shape instance
             virtual std::string ToString() const; // ToString to return string output ex. "ID: 123"
-            virtual void Draw() = 0;              // pure virtual member function
+            virtual const void Draw() = 0;              // pure virtual member function
         };
     }
 }

@@ -36,6 +36,11 @@ namespace ADSINGH
             return ss.str();
         }
 
+        const void Shape::Print() const
+        {
+            cout <<ToString()<< endl;
+        }
+
         Shape::~Shape() 
         {
             cout <<"Shape of "<<ToString() <<" destroyed!"<< endl;

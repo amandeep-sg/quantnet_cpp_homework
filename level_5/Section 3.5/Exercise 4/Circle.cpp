@@ -62,7 +62,7 @@ namespace ADSINGH
             return 2 * M_PI * raidus;
         }
 
-        void Circle::Draw()
+        const void Circle::Draw()
         {
             cout << "draw circle " << *this << endl;
         }

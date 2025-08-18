@@ -31,7 +31,7 @@ namespace ADSINGH
 
             // pure virtual member functions
             virtual void Draw() = 0;  // draw the shape in the cartesian plane
-            virtual void Print() = 0; // print shape information
+            const void Print() const; // print shape information
         };
     }
 }

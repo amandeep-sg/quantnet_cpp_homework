@@ -6,6 +6,7 @@
 
 #include <iostream>
 
+#include "Shape.hpp"
 #include "Point.hpp"
 #include "Line.hpp"
 #include "Circle.hpp"
@@ -15,16 +16,20 @@ using namespace ADSINGH::CAD;
 
 int main()
 {
-     //Does it print the right information even when derived classes do not have the Print() function?
-     //Ans: No, because the code doesnot compile as the compiler will consider the derived class as abstract class
+     // Does it print the right information even when derived classes do not have the Print() function?
+     // Ans: Yes, because the print function internally calls a virtual ToString function.
+     // And each derived class has ToString() member function
      Point p(1, 2);
      Line l(Point(2, 3), Point(4, 5));
      Circle c(p, 5);
+
+     Shape *ptr;
 
      cout << endl;
      p.Print();
      l.Print();
      c.Print();
+     ptr->Print();
 
      cout << endl;
      return 0;

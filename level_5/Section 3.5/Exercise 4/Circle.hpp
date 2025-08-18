@@ -41,7 +41,7 @@ namespace ADSINGH
             double Area() const;          // get area of the circle
             double Circumference() const; // get the circumference of the circle
 
-            void Draw();         // draw circle in the cartesian plane
+            const void Draw();         // draw circle in the cartesian plane
             void Center_Point(Point &p); // update center point of the circle
             void Raidus(double &r);      // update raidus of the circle
 

@@ -39,7 +39,6 @@ namespace ADSINGH
             const Point &End_Point() const;   // get end point of the line
 
             void Draw();                // draw line in the cartesian plane
-            void Print();               // print shape of line
             void Start_Point(Point &p); // update start point of the line
             void End_Point(Point &p);   // update end point of the line
 

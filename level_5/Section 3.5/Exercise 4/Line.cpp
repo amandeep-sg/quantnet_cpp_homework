@@ -53,7 +53,7 @@ namespace ADSINGH
             this->end_point = p;
         }
 
-        void Line::Draw() // draw line in the cartesian plane
+        const void Line::Draw() // draw line in the cartesian plane
         {
             cout <<"Draw line: "<<*this<<endl;
         }

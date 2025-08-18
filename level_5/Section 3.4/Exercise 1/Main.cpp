@@ -19,7 +19,7 @@ int main()
      // reduces the number of constructor calls as the =operator overload function is not called ex.
      // two constructor calls are saves while instantianting line l
      // one constructor call is saved while instantiating circle c
-     // this is becaue construction of Point and Initialization of Line happen in one operation
+     // this is because construction of Point and Initialization of Line happen in one operation
      
      Line l;
      Circle c;

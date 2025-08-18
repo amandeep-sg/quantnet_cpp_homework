@@ -42,6 +42,7 @@ int main()
      }
 
      cout << endl;
+     cout<<points.Size()<< endl;
 
      cout << points[2] << endl;
 }

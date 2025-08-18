@@ -79,7 +79,7 @@ namespace ADSINGH
             return *this;
         }
 
-        int Array::Size() // get the size of the array instance
+        const int Array::Size() const // get the size of the array instance
         {
             return size;
         }

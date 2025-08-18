@@ -58,11 +58,6 @@ namespace ADSINGH
             cout <<"Draw line: "<<*this<<endl;
         }
 
-        void Line::Print() // print shape of the line
-        {
-            cout <<ToString()<< endl;
-        }
-
         double Line::Length() const // calculate and return the lenght of the line
         {
             return start_point.Distance(end_point);

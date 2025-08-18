@@ -67,11 +67,6 @@ namespace ADSINGH
             cout << "draw circle " << *this << endl;
         }
 
-        void Circle::Print() // print shape of the circle
-        {
-            cout << ToString() << endl;
-        }
-
         void Circle::Center_Point(Point &p) // update start point of the Circle
         {
             this->center_point = p;

@@ -45,7 +45,7 @@ int main()
      cout << p2 << ", " << p2.ID() << endl; // Is the ID copied. Ans: Yes, the ID is copied
 
      //Is the ID copied,  if you do not call the base class assignment in point?. 
-     //And: If we do not call the base class assignment in the point, the ID is not copied. Insted a new id is generated
+     //And: If we do not call the base class assignment in the point, the ID is not copied. Instead a new id is generated
 
      cout << endl;
      return 0;
