@@ -21,31 +21,30 @@ using namespace ADSINGH::CONTAINER;
 
 int main()
 {
-     Array<Point> points(3);
+     Array<Point> points(3); // array of size 3 of type Point
      points.SetElement(0, Point(1, 2));
      points.SetElement(1, Point(3, 4));
      points.SetElement(2, Point(5, 6));
 
      cout << endl;
-     // In the main program, create an Array object and access an element that does not exist.
-     // Run the program. What happens?
-     // ans: the program terminates with error "terminating due to uncaught exception of type int"
 
-     Array<Circle> circles(2);
+     Array<Circle> circles(2); // array of size 2 of type Circle
      circles.SetElement(0, Circle(points[0], 5));
      circles.SetElement(1, Circle(points[1], 3));
 
      cout << endl;
-     try
+
+     //try and catch to check error handling in case of index is out of range
+     try 
      {
           cout << points[5] << endl;
           cout << circles[3] << endl;
      }
-     catch (ArrayException &err)
+     catch (ArrayException &err) // catch for array exceptions
      {
           cout << err.GetMessage() << endl;
      }
-     catch (...)
+     catch (...) // catch for unhandled exception
      {
           cout << "error: unhandled exception" << endl;
      }
