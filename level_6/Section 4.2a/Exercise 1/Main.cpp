@@ -10,6 +10,8 @@
 #include "Shape.hpp"
 #include "Array.hpp"
 #include "Point.hpp"
+#include "Line.hpp"
+#include "Circle.hpp"
 #include "OutOfBoundsException.hpp"
 #include "ArrayException.hpp"
 
@@ -19,7 +21,7 @@ using namespace ADSINGH::CONTAINER;
 
 int main()
 {
-     Array points(3);
+     Array<Point> points(3);
      points.SetElement(0, Point(1, 2));
      points.SetElement(1, Point(3, 4));
      points.SetElement(2, Point(5, 6));
@@ -29,9 +31,15 @@ int main()
      // Run the program. What happens?
      // ans: the program terminates with error "terminating due to uncaught exception of type int"
 
+     Array<Circle> circles(2);
+     circles.SetElement(0, Circle(points[0], 5));
+     circles.SetElement(1, Circle(points[1], 3));
+
+     cout << endl;
      try
      {
           cout << points[5] << endl;
+          cout << circles[3] << endl;
      }
      catch (ArrayException &err)
      {
@@ -45,5 +53,6 @@ int main()
      cout << endl;
 
      cout << points[2] << endl;
+     cout << circles[1] << endl;
      return 0;
 }

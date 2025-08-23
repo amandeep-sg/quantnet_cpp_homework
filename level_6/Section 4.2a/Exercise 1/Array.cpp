@@ -3,10 +3,12 @@
 //
 // author: amandeep singh gujral
 
+#ifndef Array_cpp
+#define Array_cpp
+
 #include <iostream>
 
 #include "Array.hpp"
-#include "Point.hpp"
 #include "OutOfBoundsException.hpp"
 
 using namespace std;
@@ -16,22 +18,25 @@ namespace ADSINGH
 {
     namespace CONTAINER
     {
-        Array::Array() : size(5) // default constructor initialise array of size 5
+        template <typename T>
+        Array<T>::Array() : size(5) // default constructor initialise array of size 5
         {
-            arr = new CAD::Point[size];
+            arr = new T[size];
             cout << "default constructor called: array initialise of size 5" << endl;
         }
 
-        Array::Array(int size) : size(size) // constructor initialises the array of size defines by client
+        template <typename T>
+        Array<T>::Array(int size) : size(size) // constructor initialises the array of size defines by client
         {
-            arr = new CAD::Point[size];
+            arr = new T[size];
             cout << "constructor called: array initialised of size " << size << endl;
         }
 
-        Array::Array(Array &source) // copy constructor
+        template <typename T>
+        Array<T>::Array(Array &source) // copy constructor
         {
             size = source.size;
-            arr = new CAD::Point[size];
+            arr = new T[size];
             if (arr == nullptr) // check if the memory is assigned in the heap
             {
                 cout << "error: insufficient memory!" << endl;
@@ -46,13 +51,15 @@ namespace ADSINGH
             cout << "constructor called: array of size " << size << " copied!" << endl;
         }
 
-        Array::~Array() // destructor to delete the array when out of scope
+        template <typename T>
+        Array<T>::~Array() // destructor to delete the array when out of scope
         {
             delete[] arr;
             // cout << "deleted array of size " << size << endl;
         }
 
-        Array &Array::operator=(Array &source) // assigment operator to copy element of one array to another
+        template <typename T>
+        Array<T> &Array<T>::operator=(Array<T> &source) // assigment operator to copy element of one array to another
         {
             if (this == &source) // check if the source array == *this to avoid deletion of the elements
             {
@@ -62,7 +69,7 @@ namespace ADSINGH
             {
                 delete[] arr;       // delete the element of the this array;
                 size = source.size; // set the size of this array equal to source;
-                arr = new CAD::Point[size];
+                arr = new T[size];
 
                 if (arr == nullptr) // check if the memory is assigned in the heap
                 {
@@ -79,12 +86,14 @@ namespace ADSINGH
             return *this;
         }
 
-        const int Array::Size() const // get the size of the array instance
+        template <typename T>
+        const int Array<T>::Size() const // get the size of the array instance
         {
             return size;
         }
 
-        CAD::Point &Array::GetElement(int index) const // get the element of the array instance based on index argument
+        template <typename T>
+        T &Array<T>::GetElement(int index) const // get the element of the array instance based on index argument
         {
             if (index < 0 || index >= size)
             {
@@ -93,7 +102,8 @@ namespace ADSINGH
             return arr[index];
         }
 
-        void Array::SetElement(const int index, const CAD::Point &element) // set the Point element at the index in an array
+        template <typename T>
+        void Array<T>::SetElement(const int index, const T &element) // set the element at the index in an array
         {
             if (index < 0 || index >= size)
             {
@@ -102,15 +112,19 @@ namespace ADSINGH
             arr[index] = element;
         }
 
-        const CAD::Point &Array::operator[](int index) const // overload operator[] to get element of an array instance created with const
+        template <typename T>
+        const T &Array<T>::operator[](int index) const // overload operator[] to get element of an array instance created with const
         {
             return GetElement(index);
         }
 
-        CAD::Point &Array::operator[](int index) // overload operator[] to get element of an array instance created without const
+        template <typename T>
+        T &Array<T>::operator[](int index) // overload operator[] to get element of an array instance created without const
         {
 
             return GetElement(index);
         }
     }
 }
+
+#endif

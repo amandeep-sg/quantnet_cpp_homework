@@ -35,9 +35,12 @@ namespace ADSINGH
             ss << "ID: " << id;
             return ss.str();
         }
-
-        Shape::~Shape() 
+        const void Shape::Print() const
         {
+            cout << ToString() << endl;
+        }
+
+        Shape::~Shape() {
             // cout <<"Shape of "<<ToString() <<" destroyed!"<< endl;
         };
     }

@@ -34,7 +34,7 @@ namespace ADSINGH
         double Point::X() const { return point_x; } // return x coordinate of the point
         double Point::Y() const { return point_y; } // return y coordinte of the point
 
-        void Point::Draw() { cout << "Draw point " << *this << endl; } // draw point in the cartesian plane
+        void const Point::Draw() { cout << "Draw point " << *this << endl; } // draw point in the cartesian plane
         void Point::Print() { cout << ToString() << endl; };           // print the shape of Point
         void Point::X(double x) { this->point_x = x; }                 // set the x coordinte of the pointNew
         void Point::Y(double y) { this->point_y = y; }                 // set the y coordinate of the point

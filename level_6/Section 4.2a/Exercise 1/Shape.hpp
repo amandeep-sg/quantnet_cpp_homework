@@ -30,8 +30,8 @@ namespace ADSINGH
             virtual std::string ToString() const; // ToString to return string output ex. "ID: 123"
 
             // pure virtual member functions
-            virtual void Draw() = 0;  // draw the shape in the cartesian plane
-            virtual void Print() = 0; // print shape information
+            virtual const void Draw() = 0;  // draw the shape in the cartesian plane
+            const void Print() const; // print shape information
         };
     }
 }
