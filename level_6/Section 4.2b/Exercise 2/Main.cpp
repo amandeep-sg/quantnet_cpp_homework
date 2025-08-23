@@ -13,7 +13,9 @@
 #include "Line.hpp"
 #include "Circle.hpp"
 #include "OutOfBoundsException.hpp"
+#include "SizeException.hpp"
 #include "ArrayException.hpp"
+#include "NumericArray.hpp"
 
 using namespace std;
 using namespace ADSINGH::CAD;
@@ -21,16 +23,30 @@ using namespace ADSINGH::CONTAINER;
 
 int main()
 {
-     Array<int> intArray1;
-     Array<int> intArray2;
+     NumericArray<int> intArray1(3);
+     NumericArray<int> intArray2;
      Array<double> doubleArray;
-     cout << intArray1.DefaultSize() << endl;
+     cout << intArray1.Size() << endl;
      cout << intArray2.DefaultSize() << endl;
      cout << doubleArray.DefaultSize() << endl;
      intArray1.DefaultSize(15);
      cout << intArray1.DefaultSize() << endl;
      cout << intArray2.DefaultSize() << endl;
      cout << doubleArray.DefaultSize() << endl;
+
+     try
+     {
+          NumericArray<int> intArray5;
+          intArray5 = intArray2 + intArray2;
+     }
+     catch (ArrayException &exp)
+     {
+          cout << exp.GetMessage() << endl;
+     }
+     catch (...)
+     {
+          cout << "error: unhandeled exception" << endl;
+     }
      return 0;
 }
 

@@ -1,5 +1,5 @@
 // OutOfBoundsException.cpp
-// program to define the constructor of OutOfBoundsException class
+// program to define the constructor, destrutor, memeber functions of OutOfBoundsException class
 //
 // author: amandeep singh gujral
 

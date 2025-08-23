@@ -26,7 +26,7 @@ namespace ADSINGH
         }
 
         template <typename T>
-        Array<T>::Array(int size) : size(size) // constructor initialises the array of size defines by client
+        Array<T>::Array(const unsigned int size) : size(size) // constructor initialises the array of size defines by client
         {
             arr = new T[size];
             cout << "constructor called: array initialised of size " << size << endl;

@@ -129,12 +129,12 @@ namespace ADSINGH
         unsigned int Array<T>::default_size = 5; // initialise static variable
 
         template <typename T>
-        unsigned int Array<T>::DefaultSize()
+        unsigned int Array<T>::DefaultSize() // get the value of the static member
         {
             return default_size;
         }
 
-        template<typename T>
+        template <typename T> // set the value fo the static member
         void Array<T>::DefaultSize(const unsigned int size)
         {
             default_size = size;

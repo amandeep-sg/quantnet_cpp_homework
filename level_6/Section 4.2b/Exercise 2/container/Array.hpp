@@ -20,7 +20,7 @@ namespace ADSINGH
 
         public:
             Array();                 // default constructor
-            Array(int size);         // overload constructor to initialize with size
+            Array(const unsigned int size);         // overload constructor to initialize with size
             Array(Array<T> &source); // copy constructor
 
             ~Array(); // destructor
