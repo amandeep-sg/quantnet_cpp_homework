@@ -7,9 +7,10 @@
 #define Array_cpp
 
 #include <iostream>
+#include <sstream>
 
 #include "Array.hpp"
-#include "OutOfBoundsException.hpp"
+#include "../exception/OutOfBoundsException.hpp"
 
 using namespace std;
 using namespace ADSINGH::EXCEPTION;
@@ -55,7 +56,7 @@ namespace ADSINGH
         Array<T>::~Array() // destructor to delete the array when out of scope
         {
             delete[] arr;
-            // cout << "deleted array of size " << size << endl;
+            cout << "deleted array of size " << size << endl;
         }
 
         template <typename T>
@@ -134,10 +135,25 @@ namespace ADSINGH
             return default_size;
         }
 
-        template<typename T>
+        template <typename T>
         void Array<T>::DefaultSize(const unsigned int size)
         {
             default_size = size;
+        }
+
+        template <typename T>
+        const string Array<T>::Print() const
+        {
+            stringstream ss;
+            for (int i = 0; i < size; i++)
+            {
+                ss << arr[i];
+                if (i < size - 1)
+                {
+                    ss << ", ";
+                }
+            }
+            return ss.str();
         }
     }
 }

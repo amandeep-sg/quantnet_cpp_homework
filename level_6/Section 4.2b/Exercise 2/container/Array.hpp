@@ -6,6 +6,9 @@
 #ifndef Array_hpp
 #define Array_hpp
 
+#include <string>
+using namespace std;
+
 namespace ADSINGH
 {
     namespace CONTAINER
@@ -19,15 +22,15 @@ namespace ADSINGH
             static unsigned int default_size;
 
         public:
-            Array();                 // default constructor
-            Array(const unsigned int size);         // overload constructor to initialize with size
-            Array(Array<T> &source); // copy constructor
+            Array();                        // default constructor
+            Array(const unsigned int size); // overload constructor to initialize with size
+            Array(Array<T> &source);        // copy constructor
 
-            ~Array(); // destructor
+            virtual ~Array(); // destructor
 
             Array<T> &operator=(Array<T> &soruce); // assignment operator overload to copy the array
 
-            int Size() const;               // get the size of the array
+            int Size() const;                     // get the size of the array
             T &GetElement(const int index) const; // get element at an index from the array
 
             void SetElement(const int index, const T &element); // set the element at the given index in an array
@@ -35,8 +38,9 @@ namespace ADSINGH
             T &operator[](const int index);             // operator[] for accessing elements of array instance created without const
             const T &operator[](const int index) const; // operator[] for accessing elements of array instance created with const
 
-            static unsigned int DefaultSize();           // get the default_size variable
+            static unsigned int DefaultSize();                // get the default_size variable
             static void DefaultSize(const unsigned int size); // set the default_size variable
+            const string Print() const;                       // returns all the elements of an array in comma seperated string
         };
     }
 }

@@ -29,7 +29,7 @@ namespace ADSINGH
             NumericArray<T> &operator+(const NumericArray<T> &sorurce); // operator+ overload to add elements of two arrays
             NumericArray<T> &operator*(const int factor);               // scale the elements of the array by factor
 
-            NumericArray<T> &Dot(const NumericArray<T> source1, const NumericArray<T> source2); // function to calculate the dot product of two numeric arrays
+            T DotProduct(const NumericArray<T> &source); // function to calculate the dot product of two numeric arrays
         };
     }
 }

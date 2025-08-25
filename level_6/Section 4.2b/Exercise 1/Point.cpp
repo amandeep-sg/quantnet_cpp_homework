@@ -74,8 +74,6 @@ namespace ADSINGH
             Shape::operator=(source);
             point_x = source.point_x;
             point_y = source.point_y;
-            cout << "= operator called: " << *this << endl;
-
             return *this;
         }
 

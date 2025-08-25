@@ -27,7 +27,7 @@ namespace ADSINGH
 
             ~SizeException(); // destructor
 
-            SizeException &operator=(const SizeException &source); // operator== overlaod
+            SizeException &operator=(const SizeException &source); // operator= overlaod
 
             std::string GetMessage() const; // return error message
         };
