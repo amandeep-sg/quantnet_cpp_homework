@@ -34,7 +34,7 @@ namespace ADSINGH
         }
 
         template <typename T>
-        Array<T>::Array(Array &source) // copy constructor
+        Array<T>::Array(const Array &source) // copy constructor
         {
             size = source.size;
             arr = new T[size];
@@ -60,7 +60,7 @@ namespace ADSINGH
         }
 
         template <typename T>
-        Array<T> &Array<T>::operator=(Array<T> &source) // assigment operator to copy element of one array to another
+        Array<T> &Array<T>::operator=(const Array<T> &source) // assigment operator to copy element of one array to another
         {
             if (this == &source) // check if the source array == *this to avoid deletion of the elements
             {

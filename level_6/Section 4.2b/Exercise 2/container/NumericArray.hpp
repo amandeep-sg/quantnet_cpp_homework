@@ -25,7 +25,7 @@ namespace ADSINGH
             NumericArray(const NumericArray<T> &source); // copy constructor
             ~NumericArray();                             // desstructor
 
-            NumericArray<T> &operator=(NumericArray<T> &source);  // assignment operator
+            NumericArray<T> &operator=(const NumericArray<T> &source);  // assignment operator
             NumericArray<T> &operator+(const NumericArray<T> &sorurce); // operator+ overload to add elements of two arrays
             NumericArray<T> &operator*(const int factor);               // scale the elements of the array by factor
 

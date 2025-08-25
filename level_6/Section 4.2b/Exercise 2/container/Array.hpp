@@ -24,11 +24,11 @@ namespace ADSINGH
         public:
             Array();                        // default constructor
             Array(const unsigned int size); // overload constructor to initialize with size
-            Array(Array<T> &source);        // copy constructor
+            Array(const Array<T> &source);        // copy constructor
 
             virtual ~Array(); // destructor
 
-            Array<T> &operator=(Array<T> &soruce); // assignment operator overload to copy the array
+            Array<T> &operator=(const Array<T> &soruce); // assignment operator overload to copy the array
 
             int Size() const;                     // get the size of the array
             T &GetElement(const int index) const; // get element at an index from the array
