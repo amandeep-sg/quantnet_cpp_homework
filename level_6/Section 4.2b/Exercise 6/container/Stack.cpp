@@ -1,5 +1,6 @@
 // Stack.cpp
 //  program to define the constructor, destructor, data memeber and memeber function of Stack class
+// size of stack is a template argument
 //
 // author: amandeep singh gujral
 
@@ -21,20 +22,17 @@ namespace ADSINGH
     namespace CONTAINER
     {
 
-        template <typename T> // default constructor
-        Stack<T>::Stack() : curr_index(0){};
+        template <typename T, int size> // default constctor
+        Stack<T, size>::Stack() : curr_index(0), arr(size){};
 
-        template <typename T> // constructor to instantiate the Stack with size defined by the customer
-        Stack<T>::Stack(const unsigned int size) : arr(size), curr_index(0){};
+        template <typename T, int size> // copy constructor
+        Stack<T, size>::Stack(const Stack &source) : arr(source.arr), curr_index(source.curr_index){};
 
-        template <typename T> // copy constructor
-        Stack<T>::Stack(const Stack &source) : arr(source.arr), curr_index(source.curr_index){};
+        template <typename T, int size> // destructor
+        Stack<T, size>::~Stack(){};
 
-        template <typename T> // destructor
-        Stack<T>::~Stack(){};
-
-        template <typename T> // assignment operator overload
-        Stack<T> &Stack<T>::operator=(const Stack &source)
+        template <typename T, int size> // assignment operator overload
+        Stack<T, size> &Stack<T, size>::operator=(const Stack &source)
         {
             if (this == &source)
             {
@@ -45,8 +43,8 @@ namespace ADSINGH
             return *this;
         }
 
-        template <typename T> // push elements to the end of the client
-        void Stack<T>::Push(const T &source)
+        template <typename T, int size> // push elements to the end of the client
+        void Stack<T, size>::Push(const T &source)
         {
             try
             {
@@ -63,8 +61,8 @@ namespace ADSINGH
             }
         }
 
-        template <typename T> // pop elements from the end of the stack and return to the client
-        T &Stack<T>::Pop()
+        template <typename T, int size> // pop elements from the end of the stack and return to the client
+        T &Stack<T, size>::Pop()
         {
             try
             {
@@ -82,14 +80,14 @@ namespace ADSINGH
             }
         }
 
-        template <typename T> // get the value of the curr_index data memeber
-        int Stack<T>::c_index()
+        template <typename T, int size> // get the value of the curr_index data memeber
+        int Stack<T, size>::c_index()
         {
             return curr_index;
         }
 
-        template <typename T> // print all the elements of the stack
-        string Stack<T>::Print()
+        template <typename T, int size> // print all the elements of the stack
+        string Stack<T, size>::Print()
         {
             return arr.Print();
         }

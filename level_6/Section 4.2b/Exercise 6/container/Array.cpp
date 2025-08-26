@@ -49,7 +49,7 @@ namespace ADSINGH
                     arr[i] = source.arr[i];
                 }
             }
-            cout << "constructor called: array of size " << size << " copied!" << endl;
+            // cout << "constructor called: array of size " << size << " copied!" << endl;
         }
 
         template <typename T>

@@ -16,14 +16,15 @@ int main()
 {
 
      // intstantiate a Stack of type int
-     Stack<int> intStack1;
+     Stack<int, 4> intStack1;
+     Stack<int, 4> intStack3;
 
      // Push elements in stack
      try
      {
           for (int i = 0; i != 6; i++)
           {
-               intStack1.Push(i+2);
+               intStack1.Push(i + 4);
           }
      }
      catch (StackException &ex)
@@ -35,15 +36,20 @@ int main()
           cout << "error: unhandeled exception!" << endl;
      }
 
-     cout << "current_index: "<<intStack1.c_index() << endl
-          <<"elements of the stack: "<< intStack1.Print() << endl << endl;
+     cout << "current_index: " << intStack1.c_index() << endl
+          << "elements of the stack-1: " << intStack1.Print() << endl
+          << endl;
+
+     // copy constructor
+     Stack<int, 4> intStack2(intStack1);
 
      // pop element out of stack
+     cout << "elements of stack-2: " << endl;
      try
      {
           for (int i = 5; i != -1; i--)
           {
-               cout << intStack1.Pop() << endl;
+               cout << intStack2.Pop() << endl;
           }
      }
      catch (StackException &ex)
@@ -55,7 +61,12 @@ int main()
           cout << "error: unhandeled exception!" << endl;
      }
 
-     cout <<"curent_index: "<< intStack1.c_index() << endl;
+     cout << "curent_index: " << intStack2.c_index() << endl
+          << endl;
+
+     // test assignment operator
+     intStack3 = intStack1;
+     cout <<"elements of stack-3: "<<intStack3.Print()<< endl;
 
      return 0;
 }
