@@ -1,32 +1,61 @@
 // Main.cpp
-// Initialise an array of type Array of size 3
-// Assign Point to each element of array
-// get and set the elements of the array
+// Initialise a Stack of type Int of default size 5
+// push and pop the elements of the stack
 //
 // author: amandeep singh gujral
 
 #include <iostream>
 
-#include "container/PointArray.hpp"
+#include "container/Stack.hpp"
+#include "exception/OutOfBoundsException.hpp"
 
 using namespace std;
-using namespace ADSINGH::CAD;
 using namespace ADSINGH::CONTAINER;
 
 int main()
 {
 
-     // intstantiate numeric array of type Point
-     PointArray pointArray1;
+     // intstantiate a Stack of type int
+     Stack<int> intStack1;
 
-     // set values of numeric arrays
-     for (int i = 0; i != pointArray1.Size(); i++)
+     // Push elements in stack
+     try
      {
-          pointArray1.SetElement(i, Point(i + 1, i + 1));
+          for (int i = 0; i != 6; i++)
+          {
+               intStack1.Push(i+2);
+          }
+     }
+     catch (OutOfBoundsException &ex)
+     {
+          cout << ex.GetMessage() << endl;
+     }
+     catch (...)
+     {
+          cout << "error: unhandeled exception!" << endl;
      }
 
-     cout << "elements of array: " << pointArray1.Print() << endl;
-     cout << "sum of distance between all points: " << pointArray1.Length() << endl;
+     cout << "current_index: "<<intStack1.c_index() << endl
+          <<"elements of the stack: "<< intStack1.Print() << endl << endl;
+
+     // pop element out of stack
+     try
+     {
+          for (int i = 5; i != -1; i--)
+          {
+               cout << intStack1.Pop() << endl;
+          }
+     }
+     catch (OutOfBoundsException &ex)
+     {
+          cout << ex.GetMessage() << endl;
+     }
+     catch (...)
+     {
+          cout << "error: unhandeled exception!" << endl;
+     }
+
+     cout <<"curent_index: "<< intStack1.c_index() << endl;
 
      return 0;
 }
