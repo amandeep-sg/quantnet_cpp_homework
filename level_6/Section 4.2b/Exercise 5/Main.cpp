@@ -7,7 +7,7 @@
 #include <iostream>
 
 #include "container/Stack.hpp"
-#include "exception/OutOfBoundsException.hpp"
+#include "exception/StackException.hpp"
 
 using namespace std;
 using namespace ADSINGH::CONTAINER;
@@ -26,7 +26,7 @@ int main()
                intStack1.Push(i+2);
           }
      }
-     catch (OutOfBoundsException &ex)
+     catch (StackException &ex)
      {
           cout << ex.GetMessage() << endl;
      }
@@ -46,7 +46,7 @@ int main()
                cout << intStack1.Pop() << endl;
           }
      }
-     catch (OutOfBoundsException &ex)
+     catch (StackException &ex)
      {
           cout << ex.GetMessage() << endl;
      }

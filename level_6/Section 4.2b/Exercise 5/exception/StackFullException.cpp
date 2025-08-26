@@ -12,8 +12,8 @@ namespace ADSINGH
 {
     namespace EXCEPTION
     {
-        StackFullException::StackFullException() {};                                                                           // default constructor
-        StackFullException::StackFullException(const StackFullException &other){}; // copy constructor
+        StackFullException::StackFullException() {};                                // default constructor                                                                       // default constructor
+        StackFullException::StackFullException(const StackFullException &other) {}; // copy constructor
 
         StackFullException::~StackFullException() {}; // destructor
 

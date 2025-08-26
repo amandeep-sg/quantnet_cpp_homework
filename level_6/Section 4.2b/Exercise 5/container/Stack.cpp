@@ -11,7 +11,9 @@
 
 #include "Stack.hpp"
 
-#include "../exception/OutOfBoundsException.hpp"
+#include "../exception/ArrayException.hpp"
+#include "../exception/StackEmptyException.hpp"
+#include "../exception/StackFullException.hpp"
 
 using namespace std;
 namespace ADSINGH
@@ -46,23 +48,38 @@ namespace ADSINGH
         template <typename T> // push elements to the end of the client
         void Stack<T>::Push(const T &source)
         {
-            if (curr_index == arr.Size()) // check if the stack is overloaded
+            try
             {
-                throw OutOfBoundsException(curr_index);
+                arr.SetElement(curr_index, source);
+                curr_index++;
             }
-            arr.SetElement(curr_index, source);
-            curr_index++;
+            catch (ArrayException &ex) // catch OutOfBoundsException of class Array
+            {
+                throw StackFullException();
+            }
+            catch (...)
+            {
+                throw;
+            }
         }
 
         template <typename T> // pop elements from the end of the stack and return to the client
         T &Stack<T>::Pop()
         {
-            if (curr_index == 0) // check if stack if fully offloaded
+            try
             {
-                throw OutOfBoundsException(curr_index);
+                curr_index--;
+                return arr[curr_index];
             }
-            curr_index--;
-            return arr[curr_index];
+            catch (ArrayException &ex) // catch OutOfBoundsException of class Array
+            {
+                curr_index = 0; // set current index = 0
+                throw StackEmptyException();
+            }
+            catch (...)
+            {
+                throw;
+            }
         }
 
         template <typename T> // get the value of the curr_index data memeber
