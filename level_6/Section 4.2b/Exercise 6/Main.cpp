@@ -1,6 +1,7 @@
 // Main.cpp
-// Initialise a Stack of type Int of default size 5
+// Instantiate 3 Stack of type Int and size 4
 // push and pop the elements of the stack
+// try use of copy constructor and assignment operator
 //
 // author: amandeep singh gujral
 
