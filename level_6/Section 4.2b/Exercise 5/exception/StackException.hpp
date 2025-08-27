@@ -17,7 +17,7 @@ namespace ADSINGH
         public:
             StackException();                            // default constructor
             StackException(const StackException &other); // copy constructor
-            ~StackException();                           // destructor
+            virtual ~StackException();                           // destructor
 
             StackException &operator=(const StackException &source); // assignment operator overload
 

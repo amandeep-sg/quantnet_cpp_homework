@@ -83,13 +83,13 @@ namespace ADSINGH
         }
 
         template <typename T> // get the value of the curr_index data memeber
-        int Stack<T>::c_index()
+        int Stack<T>::c_index() const
         {
             return curr_index;
         }
 
         template <typename T> // print all the elements of the stack
-        string Stack<T>::Print()
+        string Stack<T>::Print() const
         {
             return arr.Print();
         }

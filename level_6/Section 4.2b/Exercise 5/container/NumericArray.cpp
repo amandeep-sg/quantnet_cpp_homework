@@ -41,7 +41,7 @@ namespace ADSINGH
         };
 
         template <typename T> //=operator overload
-        NumericArray<T> &NumericArray<T>::operator=(NumericArray<T> &source)
+        NumericArray<T> &NumericArray<T>::operator=(const NumericArray<T> &source)
         {
             if (this == &source) // check if the source array == *this to avoid deletion of the elements
             {
