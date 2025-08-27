@@ -46,7 +46,7 @@ namespace ADSINGH
         template <typename T> // push elements to the end of the client
         void Stack<T>::Push(const T &source)
         {
-            if (curr_index == arr.Size()) // check if the stack is overloaded
+            if (curr_index == arr.Size()) // check if the stack is fully loaded
             {
                 throw OutOfBoundsException(curr_index);
             }

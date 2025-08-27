@@ -1,5 +1,5 @@
 // Main.cpp
-// Initialise an array of type Array of size 3
+// Initialise an array of type Point of size 3
 // Assign Point to each element of array
 // get and set the elements of the array
 //

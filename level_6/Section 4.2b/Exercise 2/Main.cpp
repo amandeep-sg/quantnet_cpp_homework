@@ -1,7 +1,7 @@
 // Main.cpp
-// Initialise an array of type Array of size 3
-// Assign Point to each element of array
-// get and set the elements of the array
+// instantiate 4 numeric array of type int and 3 numeric array of type point
+// try to perform the numeric operations +, * and dot product on each array
+// comment on why dot product doesnot work on numeric array of type point
 //
 // author: amandeep singh gujral
 
@@ -118,7 +118,7 @@ int main()
 
      // Can you create a numeric array with Point objects
      // Yes, the numeric array of type Point can be instantiated
-     // However, the dot cannot be computed as it is not defined in the Point class
+     // However, the dot product cannot be computed as it multiplication of two points is not defined in the Point class
 
      return 0;
 }
