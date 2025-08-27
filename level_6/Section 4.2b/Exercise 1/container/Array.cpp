@@ -1,5 +1,5 @@
 // Array.cpp
-// program to define the Array class i.e. constructors, member functions
+// program to define the Array class i.e. constructors, destructor, data members, member functions
 //
 // author: amandeep singh gujral
 
@@ -9,7 +9,7 @@
 #include <iostream>
 
 #include "Array.hpp"
-#include "OutOfBoundsException.hpp"
+#include "../exception/OutOfBoundsException.hpp"
 
 using namespace std;
 using namespace ADSINGH::EXCEPTION;
@@ -33,7 +33,7 @@ namespace ADSINGH
         }
 
         template <typename T>
-        Array<T>::Array(Array &source) // copy constructor
+        Array<T>::Array(const Array &source) // copy constructor
         {
             size = source.size;
             arr = new T[size];
@@ -59,7 +59,7 @@ namespace ADSINGH
         }
 
         template <typename T>
-        Array<T> &Array<T>::operator=(Array<T> &source) // assigment operator to copy element of one array to another
+        Array<T> &Array<T>::operator=(const Array<T> &source) // assigment operator to copy element of one array to another
         {
             if (this == &source) // check if the source array == *this to avoid deletion of the elements
             {
@@ -126,7 +126,7 @@ namespace ADSINGH
         }
 
         template <typename T>
-        unsigned int Array<T>::default_size = 5; // initialise static variable
+        unsigned int Array<T>::default_size = 5; // initialise static variable default_size
 
         template <typename T>
         unsigned int Array<T>::DefaultSize() // get the value of the static member

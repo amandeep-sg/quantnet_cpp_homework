@@ -1,5 +1,6 @@
 // Array.hpp
 // program to declare an array template class which helps to create, operate upon and destroys array on heap
+// declare default_size static data memeber and static getter and setter to get and update its value
 //
 // author: amandeep singh gujral
 
@@ -20,12 +21,12 @@ namespace ADSINGH
 
         public:
             Array();                 // default constructor
-            Array(int size);         // overload constructor to initialize with size
-            Array(Array<T> &source); // copy constructor
+            Array(const int size);         // overload constructor to initialize with size
+            Array(const Array<T> &source); // copy constructor
 
             ~Array(); // destructor
 
-            Array<T> &operator=(Array<T> &soruce); // assignment operator overload to copy the array
+            Array<T> &operator=(const Array<T> &soruce); // assignment operator overload to copy the array
 
             int Size() const;               // get the size of the array
             T &GetElement(const int index) const; // get element at an index from the array
