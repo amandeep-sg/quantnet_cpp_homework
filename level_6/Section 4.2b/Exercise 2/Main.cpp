@@ -99,6 +99,11 @@ int main()
 
      cout << endl;
 
+     //copyting point array 1 to point array 4 using copy constructor
+     NumericArray<Point> pointArray4(pointArray1);
+     cout <<"elements of point array 4: "<< pointArray4.Print()<< endl;
+     cout << endl;
+
      // adding two point arrays and assigning it to third point array
      pointArray3 = pointArray1 + pointArray2;
      cout <<"elements of point array 3: " <<pointArray3.Print() << endl;

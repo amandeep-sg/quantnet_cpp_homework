@@ -17,7 +17,7 @@ namespace ADSINGH
         public:
             ArrayException();                            // default constructor
             ArrayException(const ArrayException &other); // copy constructor
-            ~ArrayException();                           // destructor
+            virtual ~ArrayException();                           // destructor
 
             ArrayException &operator=(const ArrayException &source); // assignment operator overload
 
