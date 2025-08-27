@@ -22,7 +22,7 @@ namespace ADSINGH
 
         public:
             OutOfBoundsException();                                  // default constructor
-            OutOfBoundsException(int index);                         // constructor with index argument as initial value
+            OutOfBoundsException(const int index);                         // constructor with index argument as initial value
             OutOfBoundsException(const OutOfBoundsException &other); // copy constructor
 
             ~OutOfBoundsException(); // destructor

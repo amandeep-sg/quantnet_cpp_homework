@@ -86,7 +86,7 @@ namespace ADSINGH
 
         ostream &operator<<(ostream &os, const Circle &source) //<< operator overload to cout
         {
-            os << "circle has center " << source.center_point << "and raidus " << source.raidus;
+            os << "circle has center " << source.center_point << " and raidus " << source.raidus;
             return os;
         }
 

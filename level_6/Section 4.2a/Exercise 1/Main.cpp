@@ -1,19 +1,23 @@
 // Main.cpp
-// Initialise an array of type Array of size 3
-// Assign Point to each element of array
-// get and set the elements of the array
+// Instantiate an array of type Point of size 3
+// instantiate an array of type Circle of size 2
+// Assign Point to each element of points array
+// Assign Circle to each element of circles array
+// get and set the elements in the array
 //
 // author: amandeep singh gujral
 
 #include <iostream>
 
-#include "Shape.hpp"
-#include "Array.hpp"
-#include "Point.hpp"
-#include "Line.hpp"
-#include "Circle.hpp"
-#include "OutOfBoundsException.hpp"
-#include "ArrayException.hpp"
+#include "./container/Array.hpp"
+
+#include "./cad/Shape.hpp"
+#include "./cad/Point.hpp"
+#include "./cad/Line.hpp"
+#include "./cad/Circle.hpp"
+
+#include "./exception/OutOfBoundsException.hpp"
+#include "./exception/ArrayException.hpp"
 
 using namespace std;
 using namespace ADSINGH::CAD;
@@ -34,11 +38,10 @@ int main()
 
      cout << endl;
 
-     //try and catch to check error handling in case of index is out of range
-     try 
+     // try and catch to check error handling in case of index is out of range
+     try
      {
           cout << points[5] << endl;
-          cout << circles[3] << endl;
      }
      catch (ArrayException &err) // catch for array exceptions
      {

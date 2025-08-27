@@ -13,7 +13,7 @@ namespace ADSINGH
     namespace EXCEPTION
     {
         OutOfBoundsException::OutOfBoundsException() {};                                                                           // default constructor
-        OutOfBoundsException::OutOfBoundsException(int index) : erroneous_index(index) {};                                         // constuctor instantiates with erroneous_index = index
+        OutOfBoundsException::OutOfBoundsException(const int index) : erroneous_index(index) {};                                         // constuctor instantiates with erroneous_index = index
         OutOfBoundsException::OutOfBoundsException(const OutOfBoundsException &other) : erroneous_index(other.erroneous_index) {}; // copy constructor
 
         OutOfBoundsException::~OutOfBoundsException() {}; // destructor

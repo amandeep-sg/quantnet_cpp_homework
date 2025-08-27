@@ -20,11 +20,11 @@ namespace ADSINGH
         public:
             Array();                 // default constructor
             Array(int size);         // overload constructor to initialize with size
-            Array(Array<T> &source); // copy constructor
+            Array(const Array<T> &source); // copy constructor
 
             ~Array(); // destructor
 
-            Array<T> &operator=(Array<T> &soruce); // assignment operator overload to copy the array
+            Array<T> &operator=(const Array<T> &soruce); // assignment operator overload to copy the array
 
             const int Size() const;               // get the size of the array
             T &GetElement(const int index) const; // get element at an index from the array
@@ -37,9 +37,9 @@ namespace ADSINGH
     }
 }
 
-// Using the following code enables to include Array.cpp file into the header file
-// This makes sure that the linker is able to find Array.cpp at the time of compilation
-// And it helps to maintian the consistency of including .hpp file in the main()
+// using the following code enables to include Array.cpp file into the header file
+// this makes sure that the linker is able to find Array.cpp at the time of compilation
+// plus it helps to maintian the consistency of including .hpp file in the main()
 
 #ifndef Array_cpp
 #include "Array.cpp"
