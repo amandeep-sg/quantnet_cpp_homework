@@ -46,23 +46,16 @@ namespace ADSINGH
         template <typename T> // push elements to the end of the client
         void Stack<T>::Push(const T &source)
         {
-            if (curr_index == arr.Size()) // check if the stack is fully loaded
-            {
-                throw OutOfBoundsException(curr_index);
-            }
             arr.SetElement(curr_index, source);
             curr_index++;
         }
 
         template <typename T> // pop elements from the end of the stack and return to the client
-        T &Stack<T>::Pop()
+        T Stack<T>::Pop()
         {
-            if (curr_index == 0) // check if stack if fully offloaded
-            {
-                throw OutOfBoundsException(curr_index);
-            }
+            T result = arr[curr_index - 1];
             curr_index--;
-            return arr[curr_index];
+            return result;
         }
 
         template <typename T> // get the value of the curr_index data memeber

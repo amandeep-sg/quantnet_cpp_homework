@@ -56,8 +56,8 @@ int main()
 
      // scaling of an array by a factor
      cout << "Elements of array 2 before scaling: " << doubleArray2.Print() << endl;
-     doubleArray2 * 2;
-     cout << "Elements of array 2 after scaling: " << doubleArray2.Print() << endl;
+
+     cout << "Elements of array 2 after scaling: " << (doubleArray2 * 2).Print() << endl;
 
      cout << endl;
 
@@ -99,22 +99,21 @@ int main()
 
      cout << endl;
 
-     //copyting point array 1 to point array 4 using copy constructor
+     // copyting point array 1 to point array 4 using copy constructor
      NumericArray<Point> pointArray4(pointArray1);
-     cout <<"elements of point array 4: "<< pointArray4.Print()<< endl;
+     cout << "elements of point array 4: " << pointArray4.Print() << endl;
      cout << endl;
 
      // adding two point arrays and assigning it to third point array
      pointArray3 = pointArray1 + pointArray2;
-     cout <<"elements of point array 3: " <<pointArray3.Print() << endl;
+     cout << "elements of point array 3: " << pointArray3.Print() << endl;
 
      cout << endl;
 
      // scaling point array with a factor
 
      cout << "Elements of array 2 before scaling: " << pointArray2.Print() << endl;
-     pointArray2 * 2;
-     cout << "Elements of array 2 after scaling: " << pointArray2.Print() << endl;
+     cout << "Elements of array 2 after scaling: " << (pointArray2 * 2).Print() << endl;
 
      cout << endl;
 

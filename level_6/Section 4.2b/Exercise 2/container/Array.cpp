@@ -23,14 +23,14 @@ namespace ADSINGH
         Array<T>::Array() : size(default_size) // default constructor initialise array of size 5
         {
             arr = new T[size];
-            cout << "default constructor called: array initialise of size 5" << endl;
+            // cout << "default constructor called: array initialise of size 5" << endl;
         }
 
         template <typename T>
         Array<T>::Array(const unsigned int size) : size(size) // constructor initialises the array of size defines by client
         {
             arr = new T[size];
-            cout << "constructor called: array initialised of size " << size << endl;
+            // cout << "constructor called: array initialised of size " << size << endl;
         }
 
         template <typename T>
@@ -49,14 +49,14 @@ namespace ADSINGH
                     arr[i] = source.arr[i];
                 }
             }
-            cout << "constructor called: array of size " << size << " copied!" << endl;
+            // cout << "constructor called: array of size " << size << " copied!" << endl;
         }
 
         template <typename T>
         Array<T>::~Array() // destructor to delete the array when out of scope
         {
             delete[] arr;
-            cout << "deleted array of size " << size << endl;
+            // cout << "deleted array of size " << size << endl;
         }
 
         template <typename T>

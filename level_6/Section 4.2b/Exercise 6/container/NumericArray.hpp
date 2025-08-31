@@ -25,11 +25,11 @@ namespace ADSINGH
             NumericArray(const NumericArray<T> &source); // copy constructor
             ~NumericArray();                             // desstructor
 
-            NumericArray<T> &operator=(const NumericArray<T> &source);  // assignment operator
-            NumericArray<T> &operator+(const NumericArray<T> &sorurce); // operator+ overload to add elements of two arrays
-            NumericArray<T> &operator*(const int factor);               // scale the elements of the array by factor
+            NumericArray<T> &operator=(const NumericArray<T> &source);       // assignment operator
+            NumericArray<T> operator+(const NumericArray<T> &sorurce) const; // operator+ overload to add elements of two arrays
+            NumericArray<T> operator*(const int factor) const;               // scale the elements of the array by factor
 
-            T DotProduct(const NumericArray<T> &source); // function to calculate the dot product of two numeric arrays
+            T DotProduct(const NumericArray<T> &source) const; // function to calculate the dot product of two numeric arrays
         };
     }
 }

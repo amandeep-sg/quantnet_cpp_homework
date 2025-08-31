@@ -32,7 +32,7 @@ namespace ADSINGH
             Stack &operator=(const Stack &source); // assigment operator overload
 
             void Push(const T &source); // push elements to the end of the stack
-            T &Pop(); // pop out elements from the end of the stack and return to the client
+            T Pop(); // pop out elements from the end of the stack and return to the client
             int c_index(); // get the current index of the stack
             string Print(); // print the elements of the stack
         };

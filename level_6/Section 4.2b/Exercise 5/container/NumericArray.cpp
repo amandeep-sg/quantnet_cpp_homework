@@ -55,35 +55,35 @@ namespace ADSINGH
         }
 
         template <typename T> //+operator overload
-        NumericArray<T> &NumericArray<T>::operator+(const NumericArray &source)
+        NumericArray<T> NumericArray<T>::operator+(const NumericArray &source) const
         {
             if (this->Size() != source.Size()) // check it the size of this array and source are different
             {
                 throw SizeException(this->Size(), source.Size()); // throw incompatible size exception
             }
-            else
+            
+            NumericArray<T> result(*this);
+            for (int i = 0; i != this->Size(); i++) // for loop to add the elements of source to this and set new values
             {
-                for (int i = 0; i != this->Size(); i++) // for loop to add the elements of source to this and set new values
-                {
-                    this->SetElement(i, this->GetElement(i) + source[i]);
-                }
+                result[i] = result[i] + source[i];
             }
-            return *this;
+            return result;
         }
 
         template <typename T> // *operator overload
-        NumericArray<T> &NumericArray<T>::operator*(const int factor)
+        NumericArray<T> NumericArray<T>::operator*(const int factor) const
         {
+            NumericArray<T> result(*this);
             for (int i = 0; i != this->Size(); i++) // for loop to scale each element of the array by the factor and set new values
             {
-                this->SetElement(i, this->GetElement(i) * factor);
+                result[i] = result[i] * factor;
             }
 
-            return *this;
+            return result;
         }
 
         template <typename T> // compute dot product of the array => Arr[a]*Arr[b] = a1*b1 + a2*b2 + . . . . + an*bn
-        T NumericArray<T>::DotProduct(const NumericArray<T> &source)
+        T NumericArray<T>::DotProduct(const NumericArray<T> &source) const
         {
             T dot_product(0); // initalise the value
 
