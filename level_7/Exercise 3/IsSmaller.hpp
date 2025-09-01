@@ -18,8 +18,8 @@ namespace ADSINGH
 
         public:
             IsSmaller();
-            IsSmaller(T value);
-            IsSmaller(const IsSmaller &source);
+            IsSmaller(const T threshold_value);
+            IsSmaller(const IsSmaller<T> &source);
             virtual ~IsSmaller();
 
             IsSmaller<T> &operator=(const IsSmaller<T> &source);

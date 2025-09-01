@@ -15,10 +15,10 @@ namespace ADSINGH
         IsSmaller<T>::IsSmaller() : threshold(0.00){}; // default constructor
 
         template <typename T>
-        IsSmaller<T>::IsSmaller(const T value) : threshold(value){};
+        IsSmaller<T>::IsSmaller(const T threshold_value) : threshold(threshold_value){};
 
         template <typename T>
-        IsSmaller<T>::IsSmaller(const IsSmaller &source) : threshold(source.threshold){};
+        IsSmaller<T>::IsSmaller(const IsSmaller<T> &source) : threshold(source.threshold){};
 
         template <typename T>
         IsSmaller<T>::~IsSmaller(){};

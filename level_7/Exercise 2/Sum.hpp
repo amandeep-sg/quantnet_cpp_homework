@@ -46,7 +46,7 @@ double Sum(const std::map<K, V> &container)
     typename std::map<K, V>::const_iterator i;
     for (i = container.begin(); i != container.end(); i++)
     {
-        result += i->second;
+        result += i->second; // add values to calculate the sum
     }
 
     return result;
