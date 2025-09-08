@@ -92,7 +92,7 @@ namespace ADSINGH
 
         Circle::~Circle()
         {
-            // cout << ToString() << " is destroyed" << endl;
+            cout << ToString() << " is destroyed" << endl;
         }
     }
 }
