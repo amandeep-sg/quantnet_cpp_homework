@@ -1,7 +1,7 @@
-// Main.cpp
-// Instantiate 3 Stack of type Int and size 4
-// push and pop the elements of the stack
-// try use of copy constructor and assignment operator
+// main.cpp
+// create pointers of shared_ptr for pointing to instances of Point, Line & Circle
+// Assign the shared_ptr to array of shared_ptr
+// print the elements of the array using for loop
 //
 // author: amandeep singh gujral
 
