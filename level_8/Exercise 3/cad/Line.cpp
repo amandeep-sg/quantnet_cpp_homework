@@ -33,12 +33,12 @@ namespace ADSINGH
             // cout << "Constructor called: " << other.ToString() << " copied!" << endl;
         };
 
-        const Point &Line::Start_Point() const // get start point of the line
+        Point Line::Start_Point() const // get start point of the line
         {
             return start_point;
         }
 
-        const Point &Line::End_Point() const // get end point of the line
+        Point Line::End_Point() const // get end point of the line
         {
             return end_point;
         }
@@ -86,7 +86,7 @@ namespace ADSINGH
 
         Line::~Line()
         {
-            cout << "Destructor called: line destroyed with start " << start_point.ToString() << " and end " << end_point.ToString() << endl;
+            // cout << "Destructor called: line destroyed with start " << start_point.ToString() << " and end " << end_point.ToString() << endl;
         }
     }
 }

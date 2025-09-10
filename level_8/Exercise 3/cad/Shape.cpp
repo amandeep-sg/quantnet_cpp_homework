@@ -35,7 +35,7 @@ namespace ADSINGH
             ss << "ID: " << id;
             return ss.str();
         }
-        void Shape::Print() const
+        const void Shape::Print() const
         {
             cout << ToString() << endl;
         }

@@ -35,8 +35,8 @@ namespace ADSINGH
 
             ~Line(); // destructor
 
-            const Point &Start_Point() const; // get start point of the line
-            const Point &End_Point() const;   // get end point of the line
+            Point Start_Point() const; // get start point of the line
+            Point End_Point() const;   // get end point of the line
 
             void Draw() const;          // draw line in the cartesian plane
             void Start_Point(Point &p); // update start point of the line

@@ -24,7 +24,7 @@ namespace ADSINGH
         public:
             Array();                        // default constructor
             Array(const unsigned int size); // overload constructor to initialize with size
-            Array(const Array<T> &source);        // copy constructor
+            Array(const Array<T> &source);  // copy constructor
 
             virtual ~Array(); // destructor
 
@@ -32,15 +32,15 @@ namespace ADSINGH
 
             int Size() const;                     // get the size of the array
             T &GetElement(const int index) const; // get element at an index from the array
+            static unsigned int DefaultSize();    // get the default_size variable
 
+            static void DefaultSize(const unsigned int size);   // set the default_size variable
             void SetElement(const int index, const T &element); // set the element at the given index in an array
 
             T &operator[](const int index);             // operator[] for accessing elements of array instance created without const
             const T &operator[](const int index) const; // operator[] for accessing elements of array instance created with const
 
-            static unsigned int DefaultSize();                // get the default_size variable
-            static void DefaultSize(const unsigned int size); // set the default_size variable
-            const string Print() const;                       // returns all the elements of an array in comma seperated string
+            const string Print() const; // returns all the elements of an array in comma seperated string
         };
     }
 }

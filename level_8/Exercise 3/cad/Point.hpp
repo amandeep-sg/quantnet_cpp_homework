@@ -39,8 +39,8 @@ namespace ADSINGH
             void X(double x); // update the value of x coordinate of a point
             void Y(double y); // update the value of y coordinate of a point
 
-            void Draw() const;                               // draw point in the cartesian plane
-            void Print() const;                              // print the shape
+            void Draw() const;                         // draw point in the cartesian plane
+            void Print();                              // print the shape
             double Distance() const;                   // return distance of the point from origin
             double Distance(const Point &other) const; // return distance between two points
 

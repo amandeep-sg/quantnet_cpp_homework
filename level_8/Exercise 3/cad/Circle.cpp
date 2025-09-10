@@ -21,7 +21,7 @@ namespace ADSINGH
 
         Circle::Circle(const Point &c, double r) : Shape(), center_point(c), raidus(r) // overload the constructor to initialize Circle with point a & b
         {
-            cout << "Constructor called: New Circle created with center  " << c.ToString() << " and raidus " << r << endl;
+            // cout << "Constructor called: New Circle created with center  " << c.ToString() << " and raidus " << r << endl;
         };
 
         Circle::Circle(const Circle &other) : Shape(other), center_point(other.center_point), raidus(other.raidus) // copy constructor
@@ -86,13 +86,13 @@ namespace ADSINGH
 
         ostream &operator<<(ostream &os, const Circle &source) //<< operator overload to cout
         {
-            os << "circle has center " << source.center_point << "and raidus " << source.raidus;
+            os << "circle has center " << source.center_point << " and raidus " << source.raidus;
             return os;
         }
 
         Circle::~Circle()
         {
-            cout << ToString() << " is destroyed" << endl;
+            // cout << ToString() << " is destroyed" << endl;
         }
     }
 }

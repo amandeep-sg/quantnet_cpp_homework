@@ -8,7 +8,7 @@
 #include <iostream>
 #include <boost/shared_ptr.hpp>
 
-#include "container/Stack.hpp"
+#include "container/Array.hpp"
 #include "cad/Shape.hpp"
 #include "cad/Point.hpp"
 #include "cad/Line.hpp"
