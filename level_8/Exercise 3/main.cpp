@@ -1,4 +1,7 @@
 // main.cpp
+// take an enum input from the user and return a variant containing a respective shape object
+// try to assign the ShapeType variant to Line variable
+// increment the points of the shape using visitor
 //
 // author: amandeep singh gujral
 
