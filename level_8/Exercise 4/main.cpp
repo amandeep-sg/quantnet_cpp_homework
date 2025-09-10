@@ -1,5 +1,5 @@
 // main.cpp
-// simulate 6 face dice throwing experiment
+// simulate 6 face dice throwing experiment using uniform int distribution
 //
 // author: amandeep singh gujral
 
