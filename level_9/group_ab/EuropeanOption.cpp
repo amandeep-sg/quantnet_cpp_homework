@@ -1,5 +1,5 @@
 // EuropeanOption.cpp
-// define the member functions to compute the price and geeks of the options
+// define the constructor and member functions to compute the price and geeks of the options
 //
 // author: amandeep singh gujral
 
@@ -84,6 +84,12 @@ namespace INSTRUMENT
             return (exp((b - r) * T) * (N(d1) - 1.0));
         }
 
+        double EuropeanOption::Gamma(double r, double K, double T, double sig, double b, double S) const
+        {
+            double d1 = (log(S / K) + (b + (sig * sig) * .5) * T) / (sig * sqrt(T));
+            return (n(d1) * exp((b - r) * T)) / (S * sig * sqrt(T));
+        }
+
         // constructors
         EuropeanOption::EuropeanOption() : Option()
         {
@@ -119,51 +125,39 @@ namespace INSTRUMENT
         }
 
         // member functions
-        vector<double> EuropeanOption::GetParams() const
+        vector<double> EuropeanOption::Params() const
         {
             return vector<double>{r, K, T, sig, b, S};
         }
 
-        void EuropeanOption::SetParams(const any name, const double value)
+        void EuropeanOption::Params(const Param name, const double value)
         {
-            try
+            switch (name)
             {
-                Param p = any_cast<Param>(name);
-                switch (p)
-                {
-                case Param::RETURN:
-                    this->r = value;
-                    break;
-                case Param::STRIKE:
-                    this->K = value;
-                    break;
-                case Param::MATURITY:
-                    this->T = value;
-                    break;
-                case Param::SIGMA:
-                    this->sig = value;
-                    break;
-                case Param::COC:
-                    this->b = value;
-                    break;
-                case Param::SPOT:
-                    this->S = value;
-                    break;
-                default:
-                    throw invalid_argument("input error: not a valid european option param!");
-                };
-            }
-            catch (const bad_any_cast &e)
-            {
-                throw("input error: not an enum!");
-            }
-            catch (...)
-            {
-                throw("system error: unhandled exception");
-            }
+            case Param::RETURN:
+                this->r = value;
+                break;
+            case Param::STRIKE:
+                this->K = value;
+                break;
+            case Param::MATURITY:
+                this->T = value;
+                break;
+            case Param::SIGMA:
+                this->sig = value;
+                break;
+            case Param::COC:
+                this->b = value;
+                break;
+            case Param::SPOT:
+                this->S = value;
+                break;
+            default:
+                throw invalid_argument("input error: not a valid european option param!");
+            };
         }
 
-        void EuropeanOption::SetParams(vector<double> &data)
+        void EuropeanOption::Params(vector<double> &data)
         {
             this->r = data[0];
             this->K = data[1];
@@ -215,10 +209,54 @@ namespace INSTRUMENT
             }
         }
 
+        double EuropeanOption::Delta(const double h) const
+        {
+            double result;
+            if (optionType == "C")
+            {
+                return (CallPrice(r, K, T, sig, b, S + h) - CallPrice(r, K, T, sig, b, S - h)) / (2 * h);
+            }
+            else
+            {
+                return (PutPrice(r, K, T, sig, b, S + h) - PutPrice(r, K, T, sig, b, S - h)) / (2 * h);
+            }
+        }
+
+        vector<double> EuropeanOption::Delta(const vector<vector<double>> &optionDataMatrix) const
+        {
+            vector<double> result;
+            for (const vector<double> row : optionDataMatrix)
+            {
+                if (optionType == "C")
+                {
+                    result.push_back(DeltaCall(row[0], row[1], row[2], row[3], row[4], row[5]));
+                }
+                else
+                {
+                    result.push_back(DeltaPut(row[0], row[1], row[2], row[3], row[4], row[5]));
+                }
+            }
+            return result;
+        }
+
         double EuropeanOption::Gamma() const
         {
-            double d1 = (log(S / K) + (b + (sig * sig) * .5) * T) / (sig * sqrt(T));
-            return (n(d1) * exp((b - r) * T)) / (S * sig * sqrt(T));
+            return Gamma(r, K, T, sig, b, S);
+        }
+
+        double EuropeanOption::Gamma(const double h) const
+        {
+            return (CallPrice(r, K, T, sig, b, S + h) + CallPrice(r, K, T, sig, b, S - h) - 2 * CallPrice(r, K, T, sig, b, S)) / (h * h);
+        }
+
+        vector<double> EuropeanOption::Gamma(const vector<vector<double>> &optionDataMatrix) const
+        {
+            vector<double> result;
+            for (const vector<double> row : optionDataMatrix)
+            {
+                result.push_back(Gamma(row[0], row[1], row[2], row[3], row[4], row[5]));
+            }
+            return result;
         }
 
         bool EuropeanOption::Parity(const double callPrice, const double putPrice, const double tolerance) const

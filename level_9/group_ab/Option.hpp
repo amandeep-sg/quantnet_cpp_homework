@@ -8,6 +8,8 @@
 #include <vector>
 #include <any>
 
+#include "Enum.hpp"
+
 using namespace std;
 
 namespace INSTRUMENT
@@ -22,8 +24,8 @@ namespace INSTRUMENT
             virtual ~Option();
 
             Option &operator=(const Option &source);
-            virtual vector<double> GetParams() const = 0;
-            virtual void SetParams(const any name, const double value) = 0;
+            virtual vector<double> Params() const = 0;
+            virtual void Params(const Param name, const double value) = 0;
         };
     }
 }
