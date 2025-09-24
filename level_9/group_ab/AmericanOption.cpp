@@ -7,6 +7,7 @@
 #define AMERICAN_OPTION_CPP
 
 #include <vector>
+#include <iostream>
 #include <boost/math/distributions/normal.hpp>
 
 #include "Enum.hpp"
@@ -53,7 +54,7 @@ namespace INSTRUMENT
             return K * pow(((y2 - 1) * S / (y2 * K)), y2) / (1 - y2);
         }
 
-        // constructors
+        // constructors & destructor
         AmericanOption::AmericanOption() : Option()
         {
             init();
@@ -76,7 +77,7 @@ namespace INSTRUMENT
 
         AmericanOption::~AmericanOption() {};
 
-        // operator overload
+        // operator overloading
         AmericanOption &AmericanOption::operator=(const AmericanOption &source)
         {
             if (this == &source)
@@ -86,15 +87,16 @@ namespace INSTRUMENT
             return *this;
         }
 
-        // member functions
+        // getter
         vector<double> AmericanOption::Params() const
         {
             return vector<double>{r, K, sig, b, S};
         }
 
+        // setter
         void AmericanOption::Params(const Param name, const double value)
         {
-            switch (name)
+            switch (name) // set param value based on the enum
             {
             case Param::RETURN:
                 this->r = value;
@@ -118,6 +120,8 @@ namespace INSTRUMENT
 
         void AmericanOption::Params(vector<double> &data)
         {
+            if (data.size() != 5) // check if the vector contains all the parameters
+                throw invalid_argument("input error: invalid vector of parameters!");
             this->r = data[0];
             this->K = data[1];
             this->sig = data[2];
@@ -127,7 +131,7 @@ namespace INSTRUMENT
 
         double AmericanOption::Price() const
         {
-            if (optionType == "C")
+            if (optionType == "C") // check for option type
             {
                 return CallPrice(r, K, sig, b, S);
             }
@@ -141,7 +145,7 @@ namespace INSTRUMENT
         {
             vector<double> result;
 
-            for (const vector<double> &row : optionDataMatrix)
+            for (const vector<double> &row : optionDataMatrix) //compute for each row in the matrix
             {
                 if (optionType == "C")
                 {
@@ -155,7 +159,7 @@ namespace INSTRUMENT
             return result;
         }
 
-        void AmericanOption::toggle()
+        void AmericanOption::toggle() //implicit toggle
         {
             if (optionType == "C")
             {
@@ -167,7 +171,7 @@ namespace INSTRUMENT
             }
         }
 
-        void AmericanOption::toggle(const string type)
+        void AmericanOption::toggle(const string type) // expicit toggle
         {
             if (type == "C" || type == "c")
             {

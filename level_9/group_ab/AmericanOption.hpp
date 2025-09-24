@@ -39,8 +39,8 @@ namespace INSTRUMENT
         public:
             AmericanOption();                                                                                                                // default constructor
             AmericanOption(const double r, const double K, const double sig, const double b, const double S, const string optionType = "C"); // constructor with initial parameters
-            AmericanOption(const AmericanOption &source);
-            ~AmericanOption();
+            AmericanOption(const AmericanOption &source); // copy constructor
+            ~AmericanOption(); //destructor
 
             AmericanOption &operator=(const AmericanOption &source);
 

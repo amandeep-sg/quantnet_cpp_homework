@@ -41,23 +41,24 @@ namespace INSTRUMENT
 
             // getters
             T Option() const;     // returns the instance of the option being used for simulation
-            int Start() const; // returns the start point
-            int End() const;   // returns the end point
+            int Start() const;    // returns the start point
+            int End() const;      // returns the end point
             int Interval() const; // returns the interval
 
             // setters
-            void Option(const T &option);      // set the option instance to be used for simulation
+            void Option(const T &option);   // set the option instance to be used for simulation
             void Start(const int value);    // set the start point
-            void End(const int value);    // set the end point
+            void End(const int value);      // set the end point
             void Interval(const int value); // set the interval
 
             // simulate attributes
-            vector<double> SimulatePrice(const Param &name);              // run price simulator by varing one parameter
-            vector<vector<double>> SimulatePrice(const Param (&name)[2]); // run price simulator by varying two parameters
-            vector<double> SimulateDelta(const Param &name);              // run delta simulator by varing one parameter
-            vector<vector<double>> SimulateDelta(const Param (&name)[2]); // run delta simulator by varying two parameters
-            vector<double> SimulateGamma(const Param &name);              // run delta simulator by varing one parameter
-            vector<vector<double>> SimulateGamma(const Param (&name)[2]); // run delta simulator by varying two parameters
+            vector<double> SimulatePrice(const Param &name);                          // run price simulator by varing one parameter
+            vector<vector<double>> SimulatePrice(const Param (&name)[2]);             // run price simulator by varying two parameters
+            vector<double> SimulateDelta(const Param &name);                          // run delta simulator by varing one parameter
+            vector<double> SimulateDeltaNum(const Param &name, const double divisor); // run delta simulator by varing one parameter using divided differance method
+            vector<vector<double>> SimulateDelta(const Param (&name)[2]);             // run delta simulator by varying two parameters
+            vector<double> SimulateGamma(const Param &name);                          // run delta simulator by varing one parameter
+            vector<vector<double>> SimulateGamma(const Param (&name)[2]);             // run delta simulator by varying two parameters
         };
     }
 }

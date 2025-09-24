@@ -6,6 +6,7 @@
 #ifndef ENUM_H
 #define ENUM_H
 
+// enum of option parameters
 enum class Param
 {
     STRIKE,

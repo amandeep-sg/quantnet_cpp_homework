@@ -46,51 +46,52 @@ namespace INSTRUMENT
 
         double EuropeanOption::n(double x) const
         {
-            boost::math::normal_distribution<> dist(0.0, 1.0);
+            boost::math::normal_distribution<> dist(0.0, 1.0); // standard normal distribution
             return boost::math::pdf(dist, x);
         }
 
         double EuropeanOption::N(double x) const
         {
-            boost::math::normal_distribution<> dist(0.0, 1.0);
+            boost::math::normal_distribution<> dist(0.0, 1.0); // standard normal distribution
             return boost::math::cdf(dist, x);
+        }
+
+        double EuropeanOption::d1(double r, double K, double T, double sig, double b, double S) const
+        {
+            return (log(S / K) + (b + (sig * sig) * .5) * T) / (sig * sqrt(T));
+        }
+
+        double EuropeanOption::d2(double r, double K, double T, double sig, double b, double S) const
+        {
+            return d1(r, K, T, sig, b, S) - (sig * sqrt(T));
         }
 
         double EuropeanOption::CallPrice(double r, double K, double T, double sig, double b, double S) const
         {
-            double d1 = (log(S / K) + (b + (sig * sig) * .5) * T) / (sig * sqrt(T));
-            double d2 = d1 - (sig * sqrt(T));
-
-            return (S * exp((b - r) * T) * N(d1)) - (K * exp(-r * T) * N(d2));
+            return (S * exp((b - r) * T) * N(d1(r, K, T, sig, b, S))) - (K * exp(-r * T) * N(d2(r, K, T, sig, b, S)));
         }
 
         double EuropeanOption::PutPrice(double r, double K, double T, double sig, double b, double S) const
         {
-            double d1 = (log(S / K) + (b + (sig * sig) * .5) * T) / (sig * sqrt(T));
-            double d2 = d1 - (sig * sqrt(T));
-
-            return (K * exp(-r * T) * N(-d2)) - (S * exp((b - r) * T) * N(-d1));
+            return (K * exp(-r * T) * N(-d2(r, K, T, sig, b, S))) - (S * exp((b - r) * T) * N(-d1(r, K, T, sig, b, S)));
         }
 
         double EuropeanOption::DeltaCall(double r, double K, double T, double sig, double b, double S) const
         {
-            double d1 = (log(S / K) + (b + (sig * sig) * .5) * T) / (sig * sqrt(T));
-            return (exp((b - r) * T) * N(d1));
+            return (exp((b - r) * T) * N(d1(r, K, T, sig, b, S)));
         }
 
         double EuropeanOption::DeltaPut(double r, double K, double T, double sig, double b, double S) const
         {
-            double d1 = (log(S / K) + (b + (sig * sig) * .5) * T) / (sig * sqrt(T));
-            return (exp((b - r) * T) * (N(d1) - 1.0));
+            return (exp((b - r) * T) * (N(d1(r, K, T, sig, b, S)) - 1.0));
         }
 
         double EuropeanOption::Gamma(double r, double K, double T, double sig, double b, double S) const
         {
-            double d1 = (log(S / K) + (b + (sig * sig) * .5) * T) / (sig * sqrt(T));
-            return (n(d1) * exp((b - r) * T)) / (S * sig * sqrt(T));
+            return (n(d1(r, K, T, sig, b, S)) * exp((b - r) * T)) / (S * sig * sqrt(T));
         }
 
-        // constructors
+        // constructors & destructor
         EuropeanOption::EuropeanOption() : Option()
         {
             init();
@@ -114,7 +115,7 @@ namespace INSTRUMENT
 
         EuropeanOption::~EuropeanOption() {};
 
-        // operator overload
+        // operator overloading
         EuropeanOption &EuropeanOption::operator=(const EuropeanOption &source)
         {
             if (this == &source)
@@ -132,7 +133,7 @@ namespace INSTRUMENT
 
         void EuropeanOption::Params(const Param name, const double value)
         {
-            switch (name)
+            switch (name) // set the value based on the enum given by the client
             {
             case Param::RETURN:
                 this->r = value;
@@ -159,6 +160,8 @@ namespace INSTRUMENT
 
         void EuropeanOption::Params(vector<double> &data)
         {
+            if (data.size() != 6) // check if the vector contains all the parameters
+                throw invalid_argument("input error: invalid vector of parameters!");
             this->r = data[0];
             this->K = data[1];
             this->T = data[2];
@@ -169,7 +172,7 @@ namespace INSTRUMENT
 
         double EuropeanOption::Price() const
         {
-            if (optionType == "C")
+            if (optionType == "C") // check for option type
             {
                 return CallPrice(r, K, T, sig, b, S);
             }
@@ -183,7 +186,7 @@ namespace INSTRUMENT
         {
             vector<double> result;
 
-            for (const vector<double> &row : optionDataMatrix)
+            for (const vector<double> &row : optionDataMatrix) // loop of reach row in the data matrix
             {
                 if (optionType == "C")
                 {
@@ -197,6 +200,7 @@ namespace INSTRUMENT
             return result;
         }
 
+        // compute greeks
         double EuropeanOption::Delta() const
         {
             if (optionType == "C")
@@ -211,7 +215,6 @@ namespace INSTRUMENT
 
         double EuropeanOption::Delta(const double h) const
         {
-            double result;
             if (optionType == "C")
             {
                 return (CallPrice(r, K, T, sig, b, S + h) - CallPrice(r, K, T, sig, b, S - h)) / (2 * h);
@@ -225,7 +228,7 @@ namespace INSTRUMENT
         vector<double> EuropeanOption::Delta(const vector<vector<double>> &optionDataMatrix) const
         {
             vector<double> result;
-            for (const vector<double> row : optionDataMatrix)
+            for (const vector<double> row : optionDataMatrix) // loop for each row in the data matrix
             {
                 if (optionType == "C")
                 {
@@ -234,6 +237,23 @@ namespace INSTRUMENT
                 else
                 {
                     result.push_back(DeltaPut(row[0], row[1], row[2], row[3], row[4], row[5]));
+                }
+            }
+            return result;
+        }
+
+        vector<double> EuropeanOption::Delta(const vector<vector<double>> &optionDataMatrix, const double h) const // compute using divided differance method
+        {
+            vector<double> result;
+            for (const vector<double> row : optionDataMatrix) // loop for each row in the data matrix
+            {
+                if (optionType == "C")
+                {
+                    result.push_back((CallPrice(row[0], row[1], row[2], row[3], row[4], row[5] + h) - CallPrice(row[0], row[1], row[2], row[3], row[4], row[5] - h)) / (2 * h));
+                }
+                else
+                {
+                    result.push_back((PutPrice(row[0], row[1], row[2], row[3], row[4], row[5] + h) - PutPrice(row[0], row[1], row[2], row[3], row[4], row[5] - h)) / (2 * h));
                 }
             }
             return result;
@@ -252,19 +272,19 @@ namespace INSTRUMENT
         vector<double> EuropeanOption::Gamma(const vector<vector<double>> &optionDataMatrix) const
         {
             vector<double> result;
-            for (const vector<double> row : optionDataMatrix)
+            for (const vector<double> row : optionDataMatrix) // compute for each reow in the data matrix
             {
                 result.push_back(Gamma(row[0], row[1], row[2], row[3], row[4], row[5]));
             }
             return result;
         }
 
-        bool EuropeanOption::Parity(const double callPrice, const double putPrice, const double tolerance) const
+        bool EuropeanOption::Parity(const double callPrice, const double putPrice, const double tolerance) const // default tolerance =0.00001
         {
             bool result = 0;
-            if (((callPrice + K * exp(-r * T)) - (putPrice + S)) < tolerance)
+            if (((callPrice + K * exp(-r * T)) - (putPrice + S)) < tolerance) // check if parity is withing the tolerance limit
             {
-                result = 1;
+                result = 1; // update result if parity
             }
             return result;
         }
@@ -281,7 +301,7 @@ namespace INSTRUMENT
             }
         }
 
-        void EuropeanOption::toggle()
+        void EuropeanOption::toggle() // implicit toggle
         {
             if (optionType == "C")
             {
@@ -293,7 +313,7 @@ namespace INSTRUMENT
             }
         }
 
-        void EuropeanOption::toggle(const string type)
+        void EuropeanOption::toggle(const string type) // explicit toggle
         {
             if (type == "C" || type == "c")
             {

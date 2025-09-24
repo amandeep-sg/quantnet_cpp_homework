@@ -8,7 +8,7 @@
 
 #include <string>
 #include <vector>
-
+#include <boost/math/distributions/normal.hpp>
 #include "Option.hpp"
 #include "Enum.hpp"
 
@@ -26,6 +26,9 @@ namespace INSTRUMENT
 
             double n(double x) const; // pdf
             double N(double x) const; // cdf
+
+            double d1(double r, double K, double T, double sig, double b, double S) const; // d1 of option
+            double d2(double r, double K, double T, double sig, double b, double S) const; // d2 of option
 
             double CallPrice(double r, double K, double T, double sig, double b, double S) const; // price of call option
             double PutPrice(double r, double K, double T, double sig, double b, double S) const;  // price of put option
@@ -47,8 +50,8 @@ namespace INSTRUMENT
             // constructors & member functions
             EuropeanOption();                                                                                                                                // default constructor
             EuropeanOption(const double r, const double K, const double T, const double sig, const double b, const double S, const string optionType = "C"); // constructor with initialial parameter
-            EuropeanOption(const EuropeanOption &source);                                                                                                    // copy constructor
-            ~EuropeanOption();
+            EuropeanOption(const EuropeanOption &source);                                                                                                    // copy constructor                                                                                           // copy constructor
+            ~EuropeanOption();                                                                                                                               // destrutor
 
             EuropeanOption &operator=(const EuropeanOption &source); // assignment operator
 
@@ -62,12 +65,13 @@ namespace INSTRUMENT
             vector<double> Price(const vector<vector<double>> &optionDataMatrix) const; // takes matrix of input params and return option price vector
 
             // greeks
-            double Delta() const;                                                       // compute delta of the option
-            double Delta(const double divisor) const;                                   // compute delta numerically using divided differance method
-            vector<double> Delta(const vector<vector<double>> &optionDataMatrix) const; // take matrix of input params and return option delta vector
-            double Gamma() const;                                                       // compute gamma of the option
-            double Gamma(const double divisor) const;                                   // compute gamma numerically using divide differance methor
-            vector<double> Gamma(const vector<vector<double>> &optionDataMatrix) const; // take matrix of input params and return option gamma vector
+            double Delta() const;                                                                             // compute delta of the option
+            double Delta(const double divisor) const;                                                         // compute delta numerically using divided differance method
+            vector<double> Delta(const vector<vector<double>> &optionDataMatrix) const;                       // take matrix of input params and return option delta vector
+            vector<double> Delta(const vector<vector<double>> &optionDataMatrix, const double divisor) const; // take matrix of input params and compute delta vector using divided differance method
+            double Gamma() const;                                                                             // compute gamma of the option
+            double Gamma(const double divisor) const;                                                         // compute gamma numerically using divide differance methor
+            vector<double> Gamma(const vector<vector<double>> &optionDataMatrix) const;                       // take matrix of input params and return option gamma vector
 
             // put-call parity
             bool Parity(const double callPrice, const double putPrice, const double tolerance = 0.00001) const; // check parity for given the given K, S & T

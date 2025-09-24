@@ -142,26 +142,66 @@ int main()
     cout << endl;
 
     // B.d divide differance to approximate greeks
+    // Note: as the value of h decreases, the delta compute numerically becomes close to delta computed using exact method
+    cout << "### divisor = 1 ###" << endl;
     double divisor = 1;
-    cout << setw(10) << "divisor" << setw(10) << "delta" << endl;
-    while (divisor > 1.0e-4)
+    cout << "delta: " << option5.Delta(divisor) << endl;
+    cout << "gamma: " << option5.Gamma(divisor) << endl;
+    cout << "delta vector: ";
+    for (const double i : Simulator.SimulateDeltaNum(name[1], divisor))
     {
-        cout << setw(10) << divisor << setw(10) << option5.Delta(divisor) << endl;
-        divisor /= 10;
+        cout << setw(10) << i << " ";
     }
-    cout << endl;
-    divisor = 1;
-    cout << setw(10) << "h" << setw(10) << "gamma" << endl;
-    while (divisor > 1.0e-4)
+    cout << endl
+         << endl;
+    cout << "### divisor = 0.1 ###" << endl;
+    divisor = 0.1;
+    cout << "delta: " << option5.Delta(divisor) << endl;
+    cout << "gamma: " << option5.Gamma(divisor) << endl;
+    cout << "delta vector: ";
+    for (const double i : Simulator.SimulateDeltaNum(name[1], divisor))
     {
-        cout << setw(10) << divisor << setw(10) << option5.Gamma(divisor) << endl;
-        divisor /= 10;
+        cout << setw(10) << i << " ";
     }
-    cout << endl;
+    cout << endl
+         << endl;
+    cout << "### divisor = 0.01 ###" << endl;
+    divisor = 0.01;
+    cout << "delta: " << option5.Delta(divisor) << endl;
+    cout << "gamma: " << option5.Gamma(divisor) << endl;
+    cout << "delta vector: ";
+    for (const double i : Simulator.SimulateDeltaNum(name[1], divisor))
+    {
+        cout << setw(10) << i << " ";
+    }
+    cout << endl
+         << endl;
+    cout << "### divisor = 0.001 ###" << endl;
+    divisor = 0.01;
+    cout << "delta: " << option5.Delta(divisor) << endl;
+    cout << "gamma: " << option5.Gamma(divisor) << endl;
+    cout << "delta vector: ";
+    for (const double i : Simulator.SimulateDeltaNum(name[1], divisor))
+    {
+        cout << setw(10) << i << " ";
+    }
+    cout << endl
+         << endl;
+    cout << "### divisor = 0.0001 ###" << endl;
+    divisor = 0.01;
+    cout << "delta: " << option5.Delta(divisor) << endl;
+    cout << "gamma: " << option5.Gamma(divisor) << endl;
+    cout << "delta vector: ";
+    for (const double i : Simulator.SimulateDeltaNum(name[1], divisor))
+    {
+        cout << setw(10) << i << " ";
+    }
+    cout << endl
+         << endl;
 
     // group B
     // B.b compute price of american options
-    cout << "********* Option 5: American Option **********" << endl;
+    cout << "********* Option 6: American Option **********" << endl;
     AmericanOption option6(0.1, 100.0, 0.1, 0.02, 110);
     double c5 = 18.5035;
     double p5 = 3.03106;
