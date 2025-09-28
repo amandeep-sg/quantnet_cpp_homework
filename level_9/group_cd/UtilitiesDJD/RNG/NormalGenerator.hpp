@@ -29,6 +29,7 @@ class NormalGenerator
 
 public:
 
+	virtual ~NormalGenerator(); // destructor
 	// Empty at the moment
 	virtual double getNormal() const = 0;
 };

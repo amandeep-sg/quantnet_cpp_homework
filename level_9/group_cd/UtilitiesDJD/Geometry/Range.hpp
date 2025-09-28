@@ -10,6 +10,8 @@
 #ifndef Range_HPP
 #define Range_HPP
 
+#include <vector>
+
 template <class Type> class Range
 {
 

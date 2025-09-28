@@ -22,6 +22,7 @@
 #include "UtilitiesDJD/RNG/NormalGenerator.hpp"
 #include <cmath>
 
+NormalGenerator::~NormalGenerator(){};
 
 
 BoostNormal::BoostNormal() : NormalGenerator ()

@@ -23,6 +23,8 @@
 #ifndef Range_CPP
 #define Range_CPP
 
+#include <vector>
+
 #include "UtilitiesDJD/Geometry/Range.hpp"
 
 // Constructors
