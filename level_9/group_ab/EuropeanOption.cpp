@@ -92,12 +92,12 @@ namespace INSTRUMENT
         }
 
         // constructors & destructor
-        EuropeanOption::EuropeanOption() : Option()
+        EuropeanOption::EuropeanOption()
         {
             init();
         }
 
-        EuropeanOption::EuropeanOption(const double r, const double K, const double T, const double sig, const double b, const double S, const string optionType) : Option()
+        EuropeanOption::EuropeanOption(const double r, const double K, const double T, const double sig, const double b, const double S, const string optionType)
         {
             this->r = r;
             this->K = K;
@@ -108,7 +108,7 @@ namespace INSTRUMENT
             toggle(optionType);
         }
 
-        EuropeanOption::EuropeanOption(const EuropeanOption &source) : Option(source)
+        EuropeanOption::EuropeanOption(const EuropeanOption &source)
         {
             copy(source);
         }

@@ -1,4 +1,11 @@
-# Group c.a
+# Table Of Contents
+- [Section C.a](#Section-ca)
+- [Section C.b](#section-cb)
+- [Section C.c](#section-cc)
+- [Section D.a](#section-da)
+- [Section D.b](#section-db)
+
+# Section C.a
 ## Compile and run the code
 During the initial compile, following errors and warnings were generated at the compile time
 
@@ -155,7 +162,7 @@ using the following code, the expected price computed using the following code
 price *= exp(-myOption.r * myOption.T);
 ```
 
-# Group c.b
+# Section C.b
 In this section, we will run **TestMC.cpp** code for batch-1 and batch-2 by varying number of sub-intervals(N) and number of simulations (Nsim).
 
 The simulations for both batch 1 and 2 will be executed for following values of N and Nsim.
@@ -218,7 +225,7 @@ The graph show the convergence of option prices to the exact option price and de
 ![MC put price convergence](./images/batch_2_put_price_convergence.png)
 ![MC put price relative error](./images/batch_2_put_price_relative_error.png)
 
-# Group c.c
+# Section C.c
 The option parameters of batch-4 are as follow
 - T = 30.0
 - K = 100.0
@@ -257,7 +264,7 @@ The graph show the convergence of option prices to the exact option price and de
 ![MC put price relative error](./images/batch_4_put_price_relative_error.png)
 ![MC put price standard error](./images/batch_4_put_price_standard_error.png)
 
-# Group d.a
+# Section d.a
 The following code block is added to **TestMC.cpp** to compute the standard deviation and standard error of the simulation. It takes in a vector of prices, r and T. In echange, it returns a vector of size 2 containing value of standard deviation and standard error.
 
 ```
@@ -276,7 +283,7 @@ vector<double> SDSE(const vector<double> &price, const double r, const double T)
 }
 ```
 
-# Group d.b
+# Section D.b
 In this section, we will run **TestMC.cpp** code for batch-1 and batch-2 by varying number of sub-intervals(N) and number of simulations (Nsim).
 
 The simulations for both batch 1 and 2 will be executed for following values of N and Nsim.
@@ -288,7 +295,7 @@ The simulations for both batch 1 and 2 will be executed for following values of 
 The **key observations** are following
 1. The error bars in the chart clearly show that standard deviation varies a lot for different values of N, relatively, for smaller value of Nsim.
 2. As the Nsim increases, the standard error decreases.
-3. Standard deviation and standard error, both doesnot convey whether the prices computed will converge or not. This is observed in Group c.c when computing prices of batch-4.
+3. Standard deviation and standard error, both doesnot convey whether the prices computed will converge or not. This is observed in Section c.c when computing prices of batch-4.
 
 ### Batch-1
 The option parameters of batch-1 are as follow

@@ -11,7 +11,6 @@
 #include <boost/math/distributions/normal.hpp>
 
 #include "Enum.hpp"
-#include "Option.hpp"
 #include "AmericanOption.hpp"
 
 using namespace std;
@@ -55,12 +54,12 @@ namespace INSTRUMENT
         }
 
         // constructors & destructor
-        AmericanOption::AmericanOption() : Option()
+        AmericanOption::AmericanOption()
         {
             init();
         }
 
-        AmericanOption::AmericanOption(const double r, const double K, const double sig, const double b, const double S, const string optionType) : Option()
+        AmericanOption::AmericanOption(const double r, const double K, const double sig, const double b, const double S, const string optionType)
         {
             this->r = r;
             this->K = K;
@@ -70,7 +69,7 @@ namespace INSTRUMENT
             toggle(optionType);
         }
 
-        AmericanOption::AmericanOption(const AmericanOption &source) : Option(source)
+        AmericanOption::AmericanOption(const AmericanOption &source)
         {
             copy(source);
         }

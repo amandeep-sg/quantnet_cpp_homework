@@ -9,7 +9,6 @@
 #include <string>
 #include <vector>
 
-#include "Option.hpp"
 #include "Enum.hpp"
 
 using namespace std;
@@ -18,7 +17,7 @@ namespace INSTRUMENT
 {
     namespace OPTION
     {
-        class AmericanOption : public Option
+        class AmericanOption
         {
         private:
             void init();                             // set default values for data member
@@ -45,8 +44,8 @@ namespace INSTRUMENT
             AmericanOption &operator=(const AmericanOption &source);
 
             // getters and setters
-            vector<double> Params() const override;                     // get vector of data members
-            void Params(const Param name, const double value) override; // set the value of the data member
+            vector<double> Params() const;                     // get vector of data members
+            void Params(const Param name, const double value); // set the value of the data member
             void Params(vector<double> &data);                          // set the values of the data members
 
             // option price

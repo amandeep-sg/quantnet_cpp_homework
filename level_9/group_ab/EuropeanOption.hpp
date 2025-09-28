@@ -9,7 +9,6 @@
 #include <string>
 #include <vector>
 #include <boost/math/distributions/normal.hpp>
-#include "Option.hpp"
 #include "Enum.hpp"
 
 using namespace std;
@@ -18,7 +17,7 @@ namespace INSTRUMENT
 {
     namespace OPTION
     {
-        class EuropeanOption : public Option
+        class EuropeanOption
         {
         private:
             void init();                             // set default values for data member
@@ -56,8 +55,8 @@ namespace INSTRUMENT
             EuropeanOption &operator=(const EuropeanOption &source); // assignment operator
 
             // getters and setters
-            vector<double> Params() const override;                     // get a vectors of data members
-            void Params(const Param name, const double value) override; // set the value of the data member
+            vector<double> Params() const;                     // get a vectors of data members
+            void Params(const Param name, const double value); // set the value of the data member
             void Params(vector<double> &data);                          // set the values of the data members
 
             // option price
