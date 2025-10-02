@@ -87,7 +87,7 @@ The following code in the **TextMC.cpp** is helps achieves the construction of t
 ### Calculate the stock price
 To calculate the option price, we use the original assumption of black scholes i.e. the stock price follows the geometric brownian motion. The equation is as follow:
 
-$dS(t)=r*S(t)dt+σ*S(t)*dW(t)$
+$$dS(t)=r*S(t)dt+σ*S(t)*dW(t)$$
 
 - S(t) : Stock Price   
 - r : risk free rate
@@ -96,7 +96,7 @@ $dS(t)=r*S(t)dt+σ*S(t)*dW(t)$
 
 Approximating the solution of the above equation using Euler-Maruyama scheme, we get the following
 
-$S_{n+1} = S_n +r*S_n*Δt+σ*S_n*ΔW_n$
+$$S_{n+1} = S_n +r*S_n*Δt+σ*S_n*ΔW_n$$
 
 - $Δt = T/N$
 - $ΔW = \sqrt{Δt}*Z_n$
